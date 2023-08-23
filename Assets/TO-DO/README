@@ -1,0 +1,33 @@
+HACER ESTO:
+
+Reasignar funciones. Solo 1 manager por tipo (PJ, GM, etc.).
+Establecer una escena subyacente que funcione como sector de control (managers y referencias).
+Referencias usando SO (usando acciones referenciar funciones en SOs para desacoplar el código).
+
+MANAGERS
+    - Game manager (Estados de juego, contadores, operador central)
+    - Scene manager (carga y descarga de escenas)
+    - Input manager (lee los inputs y ejecuta acciones para que otros las lean)
+    - Player manager (Principal receptor de inputs).
+
+MAQUINAS DE ESTADOS:
+  - Jugador
+    + Trabajando.
+    + Distraido.
+      * Interacción y movimiento.
+      * Interacción con clickeo.
+  - Game Manager
+    + Trabajando
+    + Especifico a minijuegos (condiciones de victoria.)
+
+MINIJUEGOS:
+  + Dinosaurio chrome.
+  + Recolectar (Cristales a pedestales).
+  + Llamadas (Amigo y médico).
+  + Leer historia (3 partes[o 2?]).
+
+DISEÑOS VISUALES:
+  + Telefono.
+  + PC.
+  + objetos (monedas, cristales, pedestales, Banco).
+  + burbujas de texto (habla y pensamiento).
