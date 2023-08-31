@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ManagerMiddleman : ScriptableObject {
     static float progressBar;
+    static int timesPrompted;
     public static Action _loadWorkSceneAction;          //
     public static Action _unloadWorkSceneAction;        //
     public static Action<string> _loadSceneAction;
@@ -16,5 +17,13 @@ public class ManagerMiddleman : ScriptableObject {
 
     public static float loadProgress(){
         return progressBar;
+    }
+
+    public static void setTimesPrompted(int _prompts) {
+        timesPrompted = _prompts;
+    }
+
+    public static int loadPrmpts(){
+        return timesPrompted;
     }
 }
