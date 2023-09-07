@@ -16,7 +16,7 @@ public class ResponseHandler : MonoBehaviour {
         responseEvents = _responseEvents;
     }
     private void Start() {
-        _dialogueUI = GetComponent<DialogueUI>();
+        _dialogueUI = DialogueUI.Instance;
     }
     public void ShowResponses(Response[] responses) {
         float responseBoxHeight = 0f;
@@ -41,6 +41,7 @@ public class ResponseHandler : MonoBehaviour {
 
     void OnPickedResponse(Response response, int responseIndex) {
         responseBox.gameObject.SetActive(false);
+        Debug.Log(responseEvents[responseIndex]);
 
         foreach(GameObject button in tempResponseButtons){
             Destroy(button);

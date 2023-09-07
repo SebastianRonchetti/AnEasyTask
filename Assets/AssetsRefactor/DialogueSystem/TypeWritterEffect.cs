@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class TypeWritterEffect : MonoBehaviour {
 
-    float writingSpeed = 40;
+    float writingSpeed = 50f;
     public bool isRunning {get; private set;}
     private readonly List<Punctuation> punctuations = new List<Punctuation>() {
         new Punctuation(new HashSet<char>(){'!', '.', '?'}, 0.6f),
@@ -37,10 +37,11 @@ public class TypeWritterEffect : MonoBehaviour {
             charIndex = Mathf.Clamp(charIndex, 0, textToType.Length);
 
             for(int i = lastCharacterIndex; i < charIndex; i++){
-                bool isLast = i > textToType.Length - 1;
+                bool isLast = i >= textToType.Length - 1;
                 meshText.text = textToType.Substring(0, i + 1);
 
-                if(IsPunctuation(textToType[i], out float waitTime) && !isLast && IsPunctuation(textToType[i + 1], out float _)) {
+                if(IsPunctuation(textToType[i], out float waitTime) 
+                    && !isLast && IsPunctuation(textToType[i + 1], out float _)) {
                     yield return new WaitForSeconds(waitTime);
                 }
             }

@@ -6,7 +6,7 @@ public class DialogueResponseEvent : MonoBehaviour {
     public ResponseEvent[] Events => _events;
     public DialogueObjectSO dialogueObjectSO => dialogueObject;
 
-    public void onValidate() {
+    public void OnValidate() {
         if(dialogueObject == null) return;
         if(dialogueObject.Responses == null) return;
         if(_events != null && _events.Length == dialogueObject.Responses.Length) return;

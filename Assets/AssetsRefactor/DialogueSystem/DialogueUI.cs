@@ -3,7 +3,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
-public class DialogueUI : MonoBehaviour {
+public class DialogueUI : SingletonClass<DialogueUI> {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     ResponseHandler _responseHandler;
@@ -11,6 +11,9 @@ public class DialogueUI : MonoBehaviour {
     [SerializeField] List<DialogueSO> _listOfAllDialogues;
     public bool IsOpen {get; private set;}
 
+    private void Awake() {
+        _instantiate();
+    }
     private void Start() {
         _typeWritterEffect = GetComponent<TypeWritterEffect>();
         _responseHandler = GetComponent<ResponseHandler>();
@@ -28,14 +31,16 @@ public class DialogueUI : MonoBehaviour {
 
     IEnumerator stepThroughDialogue(DialogueObjectSO _dialogueToDisplay) {
         for(int i = 0; i < _dialogueToDisplay.Dialogue.Length; i++){
-            string dialogue = _dialogueToDisplay.Dialogue[i].ToString();
+            string dialogue = _dialogueToDisplay.Dialogue[i];
+            
             yield return RunningTypingEffect(dialogue);
-            textLabel.text = dialogue;
 
-            if(i == dialogue.Length - 1 && _dialogueToDisplay.HasResponses)break;
+            if(i == _dialogueToDisplay.Dialogue.Length - 1 && _dialogueToDisplay.HasResponses){
+                break;
+            };
 
-            yield return null;
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+            //yield return null;
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.X));
         }
 
         if(_dialogueToDisplay.HasResponses){
@@ -65,13 +70,11 @@ public class DialogueUI : MonoBehaviour {
 
     IEnumerator RunningTypingEffect(string dialogue) {
         _typeWritterEffect.Run(dialogue, textLabel);
-
         while(_typeWritterEffect.isRunning){
-            yield return null;
-
-            if(Input.GetKey(KeyCode.Space)){
+            if(Input.GetKey(KeyCode.E)){
                 _typeWritterEffect.Stop();
             }
+            yield return null;
         }
     }
 }

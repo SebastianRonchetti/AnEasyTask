@@ -7,33 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerSimple : SingletonClass<GameManagerSimple> {
     //taria bueno una maquina de estados con SO en vez de lo que hice aca eh
-
-    [SerializeField]float workProgressionBar = 0, workFinishedMark = 420f;
     [SerializeField]List<Receptor> listOfReceptors;
-    [SerializeField]PlayerManagerSimple player;
     [SerializeField]GameObject Dialogue;
-    int timesConcentratePrompted = 0;
     public event EventHandler<EventArgs> awaitInput;
     bool canceladorAsync;
+    DialogueUI dialogue;
+    [SerializeField]DialogueObjectSO levelEnd;
+    DialogueResponseEvent dialogueResponseEvent;
 
     public void Awake() {
-        this._instantiate();
-        workProgressionBar = workFinishedMark;
+        _instantiate();
+        dialogueResponseEvent = GetComponent<DialogueResponseEvent>();
     }
 
-    private void Start() {/* 
-        PlayerManagerSimple.onFocusing += isConcentrating;
-        player = PlayerManagerSimple.Instance;
-        bt1Text = button1.GetComponentInChildren<TextMeshProUGUI>();
-        bt2Text = button2.GetComponentInChildren<TextMeshProUGUI>();
-        onWork(); */
-    }
-
-    private void OnEnable() {
-        Dialogue.SetActive(false);
-    }
-    private void Update() {
-        
+    private void Start() {
+        dialogue = DialogueUI.Instance;
+        dialogue.CloseDialogueBox();
     }
 
     public void addToList(Receptor r){
@@ -47,7 +36,9 @@ public class GameManagerSimple : SingletonClass<GameManagerSimple> {
             if(r.complete){
                 completedReceptors ++;
                 if(completedReceptors >= totalReceptors){
-                    Dialogue.SetActive(true);
+                    //Dialogue.SetActive(true);
+                    dialogue.AddResponseEvents(dialogueResponseEvent.Events);
+                    dialogue.ShowDialogue(levelEnd);
                 }
             } else {
                 break;
@@ -55,12 +46,12 @@ public class GameManagerSimple : SingletonClass<GameManagerSimple> {
         }
     }
 
-    public void onPlayOrWork(bool _play) {
-        if(_play) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        } else {
-            SceneManager.LoadSceneAsync("PoVDesktopVersion");
-        }
+    public void reload(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void backToWork(){
+        SceneManager.LoadSceneAsync("PoVDesktopVersion");
     }
     /*void isConcentrating(object sender, EventArgs e){
         workProgressionBar += 0;

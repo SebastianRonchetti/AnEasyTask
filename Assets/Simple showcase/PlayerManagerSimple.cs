@@ -13,13 +13,13 @@ public class PlayerManagerSimple : SingletonClass<PlayerManagerSimple> {
     Vector2 movement;
     Vector3 _faceDirection {get; set;}
     GameManagerSimple gm;
-
-    static PlayerManagerSimple instance;
+    [SerializeField] DialogueUI dialogueUI;
 
     private void Start() {
         _faceDirection = new Vector2(0, -1);
         gm = GameManagerSimple.Instance;
         gm.awaitInput += onWaitForInput;
+        dialogueUI = DialogueUI.Instance;
     }
 
     private void Awake() {
@@ -54,6 +54,11 @@ public class PlayerManagerSimple : SingletonClass<PlayerManagerSimple> {
                     focusing = false;
                 }*/
             //} else {
+
+                if(dialogueUI.IsOpen){
+                    return;
+                }
+                
                 if(Input.GetKeyDown(KeyCode.E)){
                     //return to work
                 }
