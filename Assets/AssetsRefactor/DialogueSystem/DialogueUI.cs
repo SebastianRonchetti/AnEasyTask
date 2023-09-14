@@ -14,9 +14,11 @@ public class DialogueUI : SingletonClass<DialogueUI> {
     private void Awake() {
         _instantiate();
     }
+
     private void Start() {
         _typeWritterEffect = GetComponent<TypeWritterEffect>();
         _responseHandler = GetComponent<ResponseHandler>();
+        ManagerMiddleman._setManagerReference?.Invoke(this);
     }
 
     public void AddResponseEvents(ResponseEvent[] _responseEvents) {

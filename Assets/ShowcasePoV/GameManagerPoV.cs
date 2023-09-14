@@ -29,7 +29,9 @@ public class GameManagerPoV : SingletonClass<GameManagerPoV>
     private void OnEnable() {
         workProgressionBar = workFinishedMark;
         PlayerManagerPoV.onFocus += isConcentrating;
+        
         dialoguePlay.SetActive(false);
+
         awaitInput?.Invoke(this, new EventArgs());
     }
 
@@ -53,13 +55,10 @@ public class GameManagerPoV : SingletonClass<GameManagerPoV>
                     maxAmount = workFinishedMark
                 });
             UpdateTimer(workProgressionBar);
-            //Debug.Log("Me concentro hmmmmmmm");
             if(workProgressionBar < 410 && 409 < workProgressionBar && timesConcentratePrompted == 0){
                 dialoguePlay.SetActive(true);
             } else if(workProgressionBar < 391 && 390 > workProgressionBar && timesConcentratePrompted == 1){
             }
-        } else {
-            //work done
         }
     }
 

@@ -8,7 +8,7 @@ public class GameSceneManager : SingletonClass<GameSceneManager> {
     int succesfulUnsubscribed;
 
     private void Awake() {
-        scenes = new Scene[3];
+        scenes = new Scene[4];
         _instantiate();
         _controlScene = SceneManager.GetSceneByName("BackgroundRun");
         scenes[0] = _controlScene;

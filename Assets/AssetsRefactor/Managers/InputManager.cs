@@ -12,6 +12,7 @@ public class InputManager : SingletonClass<InputManager> {
         public float axisRaw;
     }
     void Update() {
+
         if(Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.Space)){
             ManagerMiddleman._onKeyPressOrHoldAction?.Invoke(KeyCode.Space, 0);
         }
@@ -35,5 +36,11 @@ public class InputManager : SingletonClass<InputManager> {
             float _temp = Input.GetAxisRaw("Vertical");
             ManagerMiddleman._onKeyPressOrHoldAction?.Invoke(KeyCode.W, _temp);
         }
+
+    }
+    
+    private void FixedUpdate() {
+        float _vertical = Input.GetAxisRaw("Vertical");
+        float _horizontal = Input.GetAxisRaw("Horizontal");
     }
 }

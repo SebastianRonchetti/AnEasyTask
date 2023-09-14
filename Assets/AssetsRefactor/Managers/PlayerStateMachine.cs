@@ -10,12 +10,9 @@ public class PlayerStateMachine : StateMachine {
     private void Awake() {
         ManagerMiddleman._onKeyPressOrHoldAction += receiveInput;
     }
-    private void Start() {
-    }
 
     void receiveInput(KeyCode _input, float _axisRaw) {
-        activeOperator.computeInput(_input, _axisRaw);
-        
+        //activeOperator.computeInput(_input, _axisRaw);
     }
 
     void changeActiveMode(object sender, EventArgs e) {

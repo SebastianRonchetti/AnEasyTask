@@ -9,7 +9,7 @@ class PlayerManager : MonoBehaviour {
     GameObject _player;
 
     private void Awake() {
-        PlayerStateMachine = new StateMachine();
+        PlayerStateMachine = GetComponent<StateMachine>();
         //PlayerStateMachine.AddState();
     }
 

@@ -19,18 +19,18 @@ public class ProgressBar : MonoBehaviour
         if(mask == null){
             mask = gameObject.GetComponent<Image>();
         }
+        ManagerToOutMiddle._updateUIProgressBarCurrentMax += GetCurrentFill;
     }
 
-    void OnDestroy() {
-        
-        GameManagerPoV.onUpdateUIBar -= GetCurrentFill;
+    void OnDisable(){
+        ManagerToOutMiddle._updateUIProgressBarCurrentMax -= GetCurrentFill;
     }
 
-    void GetCurrentFill(object sender, GameManagerPoV.onUpdateUIBar_eventArgs e){
+    void GetCurrentFill(float currentAmount, float maxAmount){
         if(mask == null){
             mask = gameObject.GetComponent<Image>();
         }
-        float fillAmount = e.currentAmount / e.maxAmount;
+        float fillAmount = currentAmount / maxAmount;
         mask.fillAmount = fillAmount;
     }
 }

@@ -14,12 +14,12 @@ public class PlayerManagerPoV : SingletonClass<PlayerManagerPoV>
     // Start is called before the first frame update
     void Start()
     {
-        GameManagerPoV.awaitInput += onWaitForInput;
+        ManagerMiddleman.WaitForInput += onWaitForInput;
     }
     private void OnDestroy() {
-        GameManagerPoV.awaitInput -= onWaitForInput;
+        ManagerMiddleman.WaitForInput -= onWaitForInput;
     }
-    void onWaitForInput(object sender, EventArgs e){
+    void onWaitForInput(){
         awaitingInput = true;
     }
 

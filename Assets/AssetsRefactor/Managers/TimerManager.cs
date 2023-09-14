@@ -2,13 +2,18 @@ using UnityEngine;
 using System;
 using System.Collections;
 using TMPro;
+using System.Collections.Generic;
 
 class TimerManager : SingletonClass<TimerManager> {
     
     [SerializeField]float workProgressionBar = 0, workFinishedMark = 420f;
-    int timesConcentratePrompted = 0;
+    [SerializeField] List<TimedEventSO> timedEvents;
+    DialogueUI DUI;
     bool _concentratePromptable;
     [SerializeField] TextMeshProUGUI timerObject;
+    public class onUpdateUIBar_eventArgs : EventArgs {
+        public float currentAmount, maxAmount;
+    }
 
     private void Awake() {
         _instantiate();
@@ -17,6 +22,7 @@ class TimerManager : SingletonClass<TimerManager> {
     private void OnEnable() {
         PlayerManagerSimple.onFocusing += keepTimerActive;
         workProgressionBar = ManagerMiddleman.loadProgress();
+        DUI = DialogueUI.Instance;
     }
     private void OnDisable() {
         PlayerManagerSimple.onFocusing -= keepTimerActive;
@@ -29,9 +35,10 @@ class TimerManager : SingletonClass<TimerManager> {
         if(workProgressionBar > 0){
             workProgressionBar -= Time.deltaTime;
             UpdateTimer(workProgressionBar);
-            
+            checkCurrentProgress();
+            ManagerToOutMiddle._updateUIProgressBarCurrentMax?.Invoke(workProgressionBar, workFinishedMark);
         } else {
-            //work done
+            ManagerMiddleman.WorkFinished?.Invoke();
         }
     }
 
@@ -39,39 +46,19 @@ class TimerManager : SingletonClass<TimerManager> {
         currentTime += 1;
         string _minutes = Mathf.FloorToInt(currentTime / 60).ToString();
         string _seconds = Mathf.FloorToInt(currentTime % 60).ToString();
+        
+        timerObject.text = string.Format($"T{_minutes}:{_seconds}");
     }
 
     void checkCurrentProgress(){
         int closestWholeNumber = (int) Mathf.Round(workProgressionBar);
-        if(closestWholeNumber == 410 && timesConcentratePrompted == 0){
-            promptConcentrate();
-        } else if(closestWholeNumber == 390 && timesConcentratePrompted == 1){
-            promptConcentrate();
-        } else if(closestWholeNumber == 330 && timesConcentratePrompted == 2){
-            promptConcentrate();
-        } else if(closestWholeNumber == 270 && timesConcentratePrompted == 3){
-            promptConcentrate();
-        } else if(closestWholeNumber == 210 && timesConcentratePrompted == 4){
-            promptConcentrate();
-        } else if(closestWholeNumber == 150 && timesConcentratePrompted == 5){
-            promptConcentrate();
-        } else if(closestWholeNumber == 90 && timesConcentratePrompted == 6){
-            promptConcentrate();
-        } else if(closestWholeNumber == 30 && timesConcentratePrompted == 7){
-            promptConcentrate();
+        foreach(TimedEventSO timedEvent in timedEvents){
+            if(timedEvent.TimeMark == closestWholeNumber && _concentratePromptable){
+                _concentratePromptable = false;
+                StartCoroutine(concentrateCooldown());
+                DUI.ShowDialogue(timedEvent.Dialogue);
+            }
         }
-    }
-
-    void promptConcentrate(){
-        if(_concentratePromptable) {
-            _concentratePromptable = false;
-            timesConcentratePrompted ++;
-            //prompt event or action that triggers concentration (on game master?)
-        }
-    }
-
-    void loadWorkScene (float _storedWork){
-        workProgressionBar = _storedWork;
     }
 
     IEnumerator concentrateCooldown(){
