@@ -5,5 +5,4 @@ public class Response {
     [SerializeField] private DialogueObjectSO _pointer;
     public string responseText => _responseText;
     public DialogueObjectSO DObject => _pointer;
-
 }

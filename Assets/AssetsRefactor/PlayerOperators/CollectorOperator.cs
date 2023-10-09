@@ -1,27 +1,55 @@
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "CollectorOperator", menuName = "AnEasyTaskv0.1/PlayerOperators/CollectorOperator", order = 0)]
 public class CollectorOperator : PlayerOperatorBase {
-    PlayerManager playerManager;
+    Vector2 movement;
+    [SerializeField] float _speed, pickupRadius = 2f;
+    GameObject player;
+    Rigidbody2D playerRb;
+    GameObject _heldObject;
+    Vector3 playerFaceDirection = new Vector2(0, -1), grabPoint;
+    [SerializeField]LayerMask objectsToPickUp;
+
     public override void OnEnterState(PlayerStateMachine playerStateMachine){
-        ManagerMiddleman.AxisRaw += computeInput;
-        getPlayer();
+        ManagerMiddleman.AxisRawHorizontalVertical += computeInput;
+        ManagerMiddleman.setPlayerForOperator += getPlayer;
     }
-    public override void UpdateState(){}
+    public override void UpdateState(PlayerStateMachine stateMachine){}
     public override void computeInput(float _horizontal, float _vertical){
-        
-        Vector2 movement = new Vector2(_horizontal, _vertical);
+        movement = new Vector2(_horizontal, _vertical);
+    }
+    public override void computeInput(KeyCode _keyCode)
+    {
+        if(_keyCode == KeyCode.Space){
+            if(_heldObject != null){
+                _heldObject.transform.position = player.transform.position + playerFaceDirection;
+                _heldObject.transform.parent = null;
+                _heldObject = null;
+            } else {
+                //pickup
+                Collider2D _item = Physics2D.OverlapCircle(player.transform.position + playerFaceDirection, pickupRadius, objectsToPickUp);
+                if(_item != null) {
+                    _heldObject = _item.gameObject;
+                    _heldObject.transform.position = grabPoint;
+                    _heldObject.transform.parent = player.transform;
+                }
+            }
+        }
     }
     public override void OnExitState(){
-        ManagerMiddleman.AxisRaw -= computeInput;
+        ManagerMiddleman.AxisRawHorizontalVertical -= computeInput;
+        ManagerMiddleman.setPlayerForOperator -= getPlayer;
     }
 
-    private void FixedUpdate() {
-        float _vertical = Input.GetAxisRaw("Vertical");
-        float _horizontal = Input.GetAxisRaw("Horizontal");
+    private void Update() {
+        if(movement.magnitude >= .5f){
+            playerRb.MovePosition(playerRb.position + movement * _speed * Time.fixedDeltaTime);
+            playerFaceDirection = movement.normalized;
+        }
     }
 
-    public override void getPlayer()
-    {
-        
+    public void getPlayer(GameObject playerOnScene) {
+        player = playerOnScene;
+        playerRb = player.GetComponent<Rigidbody2D>();
+        grabPoint = player.transform.position;
     }
 }

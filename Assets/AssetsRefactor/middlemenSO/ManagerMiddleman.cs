@@ -4,14 +4,15 @@ using UnityEngine;
 public class ManagerMiddleman : ScriptableObject {
     static float progressBar;
     static int timesPrompted;
-    public static Action _loadWorkSceneAction, WaitForInput, WorkFinished;          //
-    public static Action _unloadWorkSceneAction;        //
+    public static Action _loadWorkSceneAction, WaitForInput, WorkFinished;
     public static Action<string> _loadSceneAction;
-    public static Action _unloadSceneAction;
-    public static Action<KeyCode, float> _onKeyPressOrHoldAction;
-    public static Action _finishedUnsubscribing;
+    public static Action<int> loadSceneByCode;
+    public static Action<string> loadSceneByName;
+    public static Action<KeyCode> _onKeyPressOrHoldAction;
     public static Action<DialogueUI> _setManagerReference;
-    public static Action<float, float> AxisRaw;
+    public static Action<float, float> AxisRawHorizontalVertical;
+    public static Action workStationConcentrating;
+    public static Action<GameObject> setPlayerForOperator;
 
     public static void saveProgressBar(float progress) {
         progressBar = progress;

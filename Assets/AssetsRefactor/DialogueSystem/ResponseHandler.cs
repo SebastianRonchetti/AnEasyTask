@@ -41,7 +41,6 @@ public class ResponseHandler : MonoBehaviour {
 
     void OnPickedResponse(Response response, int responseIndex) {
         responseBox.gameObject.SetActive(false);
-        Debug.Log(responseEvents[responseIndex]);
 
         foreach(GameObject button in tempResponseButtons){
             Destroy(button);

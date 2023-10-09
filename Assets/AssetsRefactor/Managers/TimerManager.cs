@@ -17,19 +17,22 @@ class TimerManager : SingletonClass<TimerManager> {
 
     private void Awake() {
         _instantiate();
+        workProgressionBar = workFinishedMark;
+        ManagerMiddleman.saveProgressBar(workProgressionBar);
     }
 
     private void OnEnable() {
-        PlayerManagerSimple.onFocusing += keepTimerActive;
+        ManagerMiddleman.workStationConcentrating += keepTimerActive;
         workProgressionBar = ManagerMiddleman.loadProgress();
+        ManagerToOutMiddle._updateUIProgressBarCurrentMax(workProgressionBar, workFinishedMark);
         DUI = DialogueUI.Instance;
     }
     private void OnDisable() {
-        PlayerManagerSimple.onFocusing -= keepTimerActive;
+        ManagerMiddleman.workStationConcentrating -= keepTimerActive;
         ManagerMiddleman.saveProgressBar(workProgressionBar);
     }
     
-    void keepTimerActive(object sender, EventArgs e){
+    void keepTimerActive(){
         workProgressionBar += 0;
 
         if(workProgressionBar > 0){

@@ -12,12 +12,12 @@ public class PlayerManagerSimple : SingletonClass<PlayerManagerSimple> {
     [SerializeField] float moveSpeed, pickupRadius = 2f;
     Vector2 movement;
     Vector3 _faceDirection {get; set;}
-    GameManagerSimple gm;
+    CollectorLocalManager gm;
     [SerializeField] DialogueUI dialogueUI;
 
     private void Start() {
         _faceDirection = new Vector2(0, -1);
-        gm = GameManagerSimple.Instance;
+        gm = CollectorLocalManager.Instance;
         gm.awaitInput += onWaitForInput;
         dialogueUI = DialogueUI.Instance;
     }

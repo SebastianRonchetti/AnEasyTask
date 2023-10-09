@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Receptor : MonoBehaviour
 {
     [SerializeField] LayerMask objectsToPickUp;
@@ -10,12 +9,17 @@ public class Receptor : MonoBehaviour
     [SerializeField] GameObject[] itemsInPlace;
     [SerializeField] List<GameObject> acceptedItems;
     public event EventHandler<EventArgs> onComplete;
-    GameManagerSimple _manager;
 
     private void Awake() {
         itemsInPlace = new GameObject[acceptedItems.Count];
-        _manager = GameManagerSimple.Instance;
-        _manager.addToList(this);
+    }
+
+    private void Start() {
+        CollectorLocalMiddlemanSO.AddReceptorToManagerList?.Invoke(this);
+    }
+
+    void buildUpListOfItems(PickableItem _item){
+        acceptedItems.Add(_item.gameObject);
     }
 
     void assignItem(GameObject _item){
@@ -46,7 +50,11 @@ public class Receptor : MonoBehaviour
     private void Update() {
         Collider2D _col = Physics2D.OverlapCircle(dropPoint.position, 2.5f, objectsToPickUp);
         if(_col != null){
-            guardarObjeto(_col.gameObject);
+            if(_col.gameObject.TryGetComponent<PickableItem>(out PickableItem pickItem)){
+                if(!pickItem.Held){
+                    guardarObjeto(_col.gameObject);
+                }
+            }
         }
     }
 }

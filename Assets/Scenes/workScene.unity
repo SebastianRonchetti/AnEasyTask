@@ -363,8 +363,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264039099}
+  - component: {fileID: 264039102}
+  - component: {fileID: 264039101}
   - component: {fileID: 264039098}
-  - component: {fileID: 264039100}
   m_Layer: 0
   m_Name: Local Manager
   m_TagString: Untagged
@@ -381,13 +382,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 264039097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 339c003e6a5d5d7449975b8eb8f12ade, type: 3}
+  m_Script: {fileID: 11500000, guid: 844be96b5a979834a8de56fb453a2105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerObject: {fileID: 1062606153}
-  workProgressionBar: 0
-  workFinishedMark: 420
-  dialoguePlay: {fileID: 0}
+  dialogueObject: {fileID: 0}
+  _events: []
 --- !u!4 &264039099
 Transform:
   m_ObjectHideFlags: 0
@@ -402,7 +401,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &264039100
+--- !u!114 &264039101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,11 +410,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 264039097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f7fb6b309eb9f94b8e7b74761bacee8, type: 3}
+  m_Script: {fileID: 11500000, guid: a6461ce46ea7b1048acb4d79c9ca1f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusing: 0
-  awaitingInput: 1
+  mask: {fileID: 563172663}
+--- !u!114 &264039102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264039097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4748655ee21d2a34b86a7f47f9cf866a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workProgressionBar: 0
+  workFinishedMark: 420
+  timedEvents: []
+  timerObject: {fileID: 1062606153}
 --- !u!1 &341334392
 GameObject:
   m_ObjectHideFlags: 0

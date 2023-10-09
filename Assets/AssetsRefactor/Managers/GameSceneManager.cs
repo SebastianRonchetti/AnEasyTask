@@ -1,48 +1,100 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManager : SingletonClass<GameSceneManager> {
-    Scene _controlScene, activeScene, nextScene;
-    Scene[] scenes;
-    int succesfulUnsubscribed;
+    sceneCodes _controlScene, activeScene, nextScene;
+    public sceneCodes[] scenes;
 
     private void Awake() {
-        scenes = new Scene[4];
         _instantiate();
-        _controlScene = SceneManager.GetSceneByName("BackgroundRun");
-        scenes[0] = _controlScene;
-        scenes[1] = SceneManager.GetSceneByName("workScene");
-        scenes[2] = SceneManager.GetSceneByName("dinosaurScene");
-        scenes[3] = SceneManager.GetSceneByName("collectorScene");
-    }
-
-    private void Start() {
-        //load scene additive (working Scene)
-    }
-
-    public void changeScene(int _sceneCode){
-        //sets new scene in additive form and unloads current scene
-        nextScene = scenes[_sceneCode];
-        ManagerMiddleman._unloadSceneAction?.Invoke();
-    }
-    void onUnsubscribeSuccesful(){
-        int activeOperators = ManagerMiddleman._unloadSceneAction.GetInvocationList().Length;
-        if(succesfulUnsubscribed >= activeOperators){
-            unloadScene();
+        scenes = new sceneCodes[4];
+        ManagerMiddleman.loadSceneByName += changeScene;
+        
+        for(int i = 0; i < scenes.Length; i++){
+            string pathToScene = SceneUtility.GetScenePathByBuildIndex(i);
+            string sceneName = System.IO.Path.GetFileNameWithoutExtension(pathToScene);
+            if(sceneName.Length <= 0){
+                return;
+            } else {
+                scenes[i] = new sceneCodes(i, sceneName);
+            }
+        }
+        
+        _controlScene = scenes[0];
+        if(activeScene != scenes[1]){
+            changeScene("workScene");
         }
     }
 
-    void unloadScene() {
+    private void Start() {
+        ManagerToOutMiddle.backToWork += backToWork;
+        ManagerToOutMiddle.loadPlay += playGame;
+    }
+
+    void backToWork(){
+        changeScene(scenes[1].getName());
+    }
+
+    void playGame(int game){
+        changeScene(scenes[game].getName());
+    }
+
+    public void changeScene(string sceneName){
+        for(int i = 1; i < scenes.Length; i++){
+            if(scenes[i].getName() == sceneName){
+                nextScene = scenes[i];
+                if(activeScene != null)
+                {
+                    SceneManager.UnloadSceneAsync(activeScene.getCode());
+                }
+                SceneManager.LoadSceneAsync(nextScene.getCode(), LoadSceneMode.Additive);
+                activeScene = nextScene;
+                ManagerMiddleman._loadSceneAction?.Invoke(activeScene.getName());
+            }
+        }
+
+        /* foreach(Scene scene in scenes){
+            if(scene.name == sceneName){
+                nextScene = scene;
+                if(activeScene != null)
+                {
+                    SceneManager.UnloadSceneAsync(activeScene);
+                }
+                SceneManager.LoadSceneAsync(nextScene.buildIndex, LoadSceneMode.Additive);
+                activeScene = nextScene;
+                ManagerMiddleman._loadSceneAction(activeScene.name);
+                Debug.Log(scene);
+            }
+        } */
+    }
+/* 
+    public void changeScene(int _sceneCode){
+        //sets new scene in additive form and unloads current scene
+        nextScene = scenes[_sceneCode];
+        SceneManager.LoadSceneAsync(nextScene.buildIndex, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(activeScene);
-    }
+        activeScene = nextScene;
+        ManagerMiddleman._loadSceneAction(activeScene.name);
+        Debug.Log(scenes[_sceneCode]);
+    } */
 
-    void loadScene() {
-        //Load nextScene. current scene = nextScene.
-    }
-
-    void onSceneLoaded(){
-        //event stablishing what scene is on
-    }
-    
 }
+    public class sceneCodes{
+        int code;
+        string sceneName;
+
+        public sceneCodes(int _code, string _sceneName){
+            this.code = _code;
+            sceneName = _sceneName;
+        }
+
+        public string getName(){
+            return sceneName;
+        }
+
+        public int getCode(){
+            return code;
+        }
+    }

@@ -2,9 +2,6 @@ using System;
 using UnityEngine;
 
 public class GameManager : SingletonClass<GameManager> {
-    InputManager _inputManager;
-    PlayerManager _playerManager;
-    GameSceneManager _gameSceneManager;
     DialogueUI _dialogueUI;
     float storedWork;
 
