@@ -60,5 +60,9 @@ public class InputManager : SingletonClass<InputManager> {
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)){
             ManagerMiddleman._onKeyPressOrHoldAction(KeyCode.Space);
         }
+
+        if(Input.GetKeyUp(KeyCode.Space)){
+            ManagerMiddleman.concentrationStopped?.Invoke(KeyCode.Space);
+        }
     }
 }

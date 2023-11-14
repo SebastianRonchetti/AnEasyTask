@@ -3,8 +3,18 @@ using System;
 public class DialogueResponseEvent : MonoBehaviour {
     [SerializeField] DialogueObjectSO dialogueObject;
     [SerializeField] ResponseEvent[] _events;
+    [SerializeField] TimedEventSO _relatedTimeEvent;
     public ResponseEvent[] Events => _events;
     public DialogueObjectSO dialogueObjectSO => dialogueObject;
+    private void Awake() {
+        ManagerToOutMiddle.OnTimeEventTrigger += OnRelatedDialogueTriggered;
+    }
+
+    void OnRelatedDialogueTriggered(TimedEventSO triggeredEvent){
+        if(triggeredEvent == _relatedTimeEvent){
+            DialogueUI.Instance.AddResponseEvents(Events);
+        }
+    }
 
     public void OnValidate() {
         if(dialogueObject == null) return;

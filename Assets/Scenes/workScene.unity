@@ -281,6 +281,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117135182}
   m_CullTransparentMesh: 1
+--- !u!1 &121294863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121294864}
+  - component: {fileID: 121294866}
+  - component: {fileID: 121294865}
+  m_Layer: 0
+  m_Name: ResponseEventLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121294864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121294863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 264039099}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &121294865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121294863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844be96b5a979834a8de56fb453a2105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 0}
+  _events: []
+  _relatedTimeEvent: {fileID: 0}
+--- !u!114 &121294866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121294863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844be96b5a979834a8de56fb453a2105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueObject: {fileID: 11400000, guid: 116e6b6b0e6fabc469bd9b8c96930c6c, type: 2}
+  _events:
+  - name: Play a game
+    _onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 264039100}
+          m_TargetAssemblyTypeName: LocalManagerWorkScene, Assembly-CSharp
+          m_MethodName: playGames
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: Keep working
+    _onPickedResponse:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 264039100}
+          m_TargetAssemblyTypeName: LocalManagerWorkScene, Assembly-CSharp
+          m_MethodName: concentrateAwaitInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  _relatedTimeEvent: {fileID: 11400000, guid: d275e046efd659e4295131386531fc67, type: 2}
 --- !u!1 &125851924
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +446,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 340, y: 70}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &264039097
 GameObject:
@@ -365,7 +459,7 @@ GameObject:
   - component: {fileID: 264039099}
   - component: {fileID: 264039102}
   - component: {fileID: 264039101}
-  - component: {fileID: 264039098}
+  - component: {fileID: 264039100}
   m_Layer: 0
   m_Name: Local Manager
   m_TagString: Untagged
@@ -373,20 +467,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &264039098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264039097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844be96b5a979834a8de56fb453a2105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueObject: {fileID: 0}
-  _events: []
 --- !u!4 &264039099
 Transform:
   m_ObjectHideFlags: 0
@@ -397,10 +477,23 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.8725058, y: -0.065875866, z: -0.4610995}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 121294864}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &264039100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264039097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2bf2e7e53c51a4c96b787a5a763a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &264039101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,7 +521,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   workProgressionBar: 0
   workFinishedMark: 420
-  timedEvents: []
+  timedEvents:
+  - {fileID: 11400000, guid: d275e046efd659e4295131386531fc67, type: 2}
+  - {fileID: 11400000, guid: ef9ab4de7b2b47e4c9cb0b6d0f57cda3, type: 2}
+  - {fileID: 11400000, guid: d275e046efd659e4295131386531fc67, type: 2}
   timerObject: {fileID: 1062606153}
 --- !u!1 &341334392
 GameObject:
@@ -712,8 +808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -25}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: 170, y: -25}
+  m_SizeDelta: {x: 340, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503740967
 MonoBehaviour:
@@ -806,14 +902,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.47
-  m_fontSizeBase: 30.47
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

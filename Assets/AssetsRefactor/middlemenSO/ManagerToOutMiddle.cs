@@ -10,4 +10,10 @@ public class ManagerToOutMiddle : ScriptableObject {
     public static Action backToWork;
     public static Action reload;
     public static Action<int> loadPlay;
+    public static Action workSceneConcentrateAwaitInput;
+    public static Action<TimedEventSO> OnTimeEventTrigger;
+
+    public static void executeLoadPlay(int game){
+        loadPlay?.Invoke(game);
+    }
 }

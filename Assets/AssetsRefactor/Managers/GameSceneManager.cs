@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManager : SingletonClass<GameSceneManager> {
@@ -81,20 +78,20 @@ public class GameSceneManager : SingletonClass<GameSceneManager> {
     } */
 
 }
-    public class sceneCodes{
-        int code;
-        string sceneName;
+public class sceneCodes{
+    int code;
+    string sceneName;
 
-        public sceneCodes(int _code, string _sceneName){
-            this.code = _code;
-            sceneName = _sceneName;
-        }
-
-        public string getName(){
-            return sceneName;
-        }
-
-        public int getCode(){
-            return code;
-        }
+    public sceneCodes(int _code, string _sceneName){
+        this.code = _code;
+        sceneName = _sceneName;
     }
+
+    public string getName(){
+        return sceneName;
+    }
+
+    public int getCode(){
+        return code;
+    }
+}

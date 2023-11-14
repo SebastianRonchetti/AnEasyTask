@@ -13,6 +13,7 @@ public class ManagerMiddleman : ScriptableObject {
     public static Action<float, float> AxisRawHorizontalVertical;
     public static Action workStationConcentrating;
     public static Action<GameObject> setPlayerForOperator;
+    public static Action<KeyCode> concentrationStopped;
 
     public static void saveProgressBar(float progress) {
         progressBar = progress;
@@ -28,5 +29,9 @@ public class ManagerMiddleman : ScriptableObject {
 
     public static int loadPrmpts(){
         return timesPrompted;
+    }
+
+    public void executeLoadSceneAction(string sceneName){
+        
     }
 }

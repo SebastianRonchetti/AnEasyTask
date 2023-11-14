@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67b7d7e62bde200419f83d4e3c233ad2, type: 3}
-  m_Name: Play or Work
+  m_Name: I got a call
   m_EditorClassIdentifier: 
   _dialogue:
-  - I think I'd like to play a game
-  _choice1: Play a game
-  _choice2: Keep working
+  - It seems I got a call from my friend Lucas
+  _choice1: Pick up.
+  _choice2: Keep Working.
   responses:
-  - _responseText: Play a game
-    _pointer: {fileID: 11400000, guid: 09a3ccedf8e31734f98b5cca61657d75, type: 2}
-  - _responseText: Keep working
-    _pointer: {fileID: 11400000, guid: 453f8af082e5d2344b70746ca481fc0d, type: 2}
+  - _responseText: Pick up.
+    _pointer: {fileID: 11400000, guid: 7763447b60aac1945adf565396a5456d, type: 2}
+  - _responseText: Don't pick up.
+    _pointer: {fileID: 11400000, guid: c380623208cc15e4b9d0ccddb7572563, type: 2}
