@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739e1403e93705c4dae256f43beb9be2, type: 3}
+  m_Name: Turtles
+  m_EditorClassIdentifier: 
+  _pages:
+  - {fileID: 11400000, guid: df65c0835331033408dc1ffd0e9d84c4, type: 2}
+  - {fileID: 11400000, guid: ed504ca0af3e2ed4985ad349da8c6980, type: 2}
+  _title: The evasive devil horned trench turtle rises from the dead!

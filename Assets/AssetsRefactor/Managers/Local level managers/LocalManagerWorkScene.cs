@@ -13,4 +13,8 @@ public class LocalManagerWorkScene : MonoBehaviour {
     public void concentrateAwaitInput(){
         ManagerMiddleman.WaitForInput?.Invoke();
     }
+
+    public void test(){
+
+    }
 }

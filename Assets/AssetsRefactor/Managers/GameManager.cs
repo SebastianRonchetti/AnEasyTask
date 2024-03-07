@@ -3,18 +3,13 @@ using UnityEngine;
 
 public class GameManager : SingletonClass<GameManager> {
     DialogueUI _dialogueUI;
-    float storedWork;
 
     private void Awake() {
         ManagerMiddleman._loadWorkSceneAction += onWorkSceneLoadedTrigger;
-        ManagerMiddleman._setManagerReference += setManagerReference;
+        //ManagerMiddleman._setManagerReference += setManagerReference;
     }
 
     void onWorkSceneLoadedTrigger(){
-    }
-
-    void onWorkSceneUnload(float _progressValue){
-        storedWork = _progressValue;
     }
 
     private void onDisable() {

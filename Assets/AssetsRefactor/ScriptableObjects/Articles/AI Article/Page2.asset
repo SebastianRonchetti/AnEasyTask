@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1252960b947b74fb6c58bf16d551fa, type: 3}
+  m_Name: Page2
+  m_EditorClassIdentifier: 
+  _paragraphs:
+  - Kiogle CEO Maximilian "Square Max" Maxwell promises that the technology derived
+    from Libra AI will allow to connect to a metaphysical aspect of reality and transcend
+    time in order to contact people in the past with very accurate simulations of
+    personality.
+  - On a related interview, AI oppositionist have declared that Square Max's promises
+    constitute an infringement on human rights as per the agreement signed by the
+    coalition of post nuclear calmity in 2045 "If it brings souls back from the dead
+    it could send them back to the wrong place!" They claim.
+  _articleImages: []

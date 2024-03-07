@@ -1,12 +1,14 @@
 using UnityEngine;
 
-
+// Info holder for time marks and pointers towards related dialogue
 [CreateAssetMenu(fileName = "TimedEventSO", menuName = "AnEasyTaskv0.1/TimedEventSO", order = 0)]
 public class TimedEventSO : ScriptableObject {
     [SerializeField] private timedEventVariables[] _timeMark;
     [SerializeField] private DialogueObjectSO _dialogueObject;
+    [SerializeField] private ArticleSO _articleObject;
     public timedEventVariables[] TimeMark => _timeMark;
     public DialogueObjectSO Dialogue => _dialogueObject;
+    public ArticleSO ArticleObject => _articleObject;
 
 }
 

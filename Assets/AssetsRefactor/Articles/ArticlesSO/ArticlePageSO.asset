@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1252960b947b74fb6c58bf16d551fa, type: 3}
+  m_Name: ArticlePageSO
+  m_EditorClassIdentifier: 
+  _paragraphs:
+  - 'PARAGRAPH 1 PARAGRAPH 1 PARAGRAPH 1 PARAGRAPH 1 PARAGRAPH 1 PARAGRAPH 1 '
+  - 'PARAGRAPH 2 PARAGRAPH 2 PARAGRAPH 2 PARAGRAPH 2 PARAGRAPH 2 PARAGRAPH 2 PARAGRAPH
+    2 '
+  - 'PARAGRAPH 3 PARAGRAPH 3 PARAGRAPH 3 PARAGRAPH 3 PARAGRAPH 3 PARAGRAPH 3 '
+  _articleImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

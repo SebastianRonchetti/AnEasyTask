@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// In-world trigger for dialogue activation. Interactable dialogue object
 public class DialogueActivator : MonoBehaviour, IInteractable {
     [SerializeField] public DialogueObjectSO dialogueObject;
 

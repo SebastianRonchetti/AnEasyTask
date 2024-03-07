@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+//This script operates as a middleman to store general events in these events can be called or subscribed by
+// any and all scripts.
+
 public class ManagerToOutMiddle : ScriptableObject {
     static GameObject _playerOnScene;
     public static GameObject PlayerOnScene => _playerOnScene;

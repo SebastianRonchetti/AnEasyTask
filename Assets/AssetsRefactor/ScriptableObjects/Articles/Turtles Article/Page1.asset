@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1252960b947b74fb6c58bf16d551fa, type: 3}
+  m_Name: Page1
+  m_EditorClassIdentifier: 
+  _paragraphs:
+  - In the last few months there has been a notable increase of sightings of the
+    evasive sea turtle species off of the coast of the South America Confederation.
+  - Biologists theorize that the repopulation efforts as well as the control of the
+    species main aggresive predator the Pipoque Shark gave the devil horned turtle
+    a chance to stay in the race.
+  _articleImages: []

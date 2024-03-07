@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ArticleManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] ArticleSO[] _listOfArticles;
+    public ArticleSO[] ListOfArticles => _listOfArticles;
+    public void ActivateRandomArticle(){
+        Debug.Log("Received");
+        if(_listOfArticles.Length == 1) {
+            OpenArticle(_listOfArticles[0]);
+        } else {
+            int rand = Mathf.RoundToInt(Random.Range(0, _listOfArticles.Length));
+            OpenArticle(_listOfArticles[rand]);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OpenArticle(ArticleSO articleToOpen){
+        Debug.Log("Script active, Article received");
+        ManagerToOutMiddle.OnShowArticleAction(articleToOpen);
     }
 }

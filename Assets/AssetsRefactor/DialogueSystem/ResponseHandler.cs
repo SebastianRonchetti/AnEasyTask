@@ -18,12 +18,16 @@ public class ResponseHandler : MonoBehaviour {
     private void Start() {
         _dialogueUI = DialogueUI.Instance;
     }
+
+    //Displays the responses provided on function call
     public void ShowResponses(Response[] responses) {
         float responseBoxHeight = 0f;
         for (int i = 0; i < responses.Length; i++) {
             Response response = responses[i];
             int responseIndex = i;
 
+            //Creates a response button for current listed response in the response array based on a template
+            //button
             GameObject responseButton = Instantiate(responseButtonTemplate.gameObject, responseContainer);
             responseButton.SetActive(true);
             responseButton.GetComponent<TMP_Text>().text = response.responseText;
@@ -38,7 +42,9 @@ public class ResponseHandler : MonoBehaviour {
         responseBox.gameObject.SetActive(true);
     }
 
+    //Called when a response is picked from the available responses associated with displayed dialogue
     void OnPickedResponse(Response response, int responseIndex) {
+        //Destroys the response boxes and resets the base response button values
         responseBox.gameObject.SetActive(false);
 
         foreach(GameObject button in tempResponseButtons){
@@ -47,6 +53,7 @@ public class ResponseHandler : MonoBehaviour {
 
         tempResponseButtons.Clear();
 
+        //if there are any events associated with the picked response invoke them
         if(responseEvents != null && responseIndex <= responseEvents.Length) {
             responseEvents[responseIndex].OnPickedResponse?.Invoke();
         }

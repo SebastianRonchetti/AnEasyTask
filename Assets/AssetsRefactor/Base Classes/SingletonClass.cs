@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Base singleton class that allows for ease of the singleton pattern
 public class SingletonClass<T> : MonoBehaviour where T:Component
 {
     private static T instance;
@@ -12,7 +12,6 @@ public class SingletonClass<T> : MonoBehaviour where T:Component
                     instance = gameObject.AddComponent<T>();
                 }
             }
-
             return instance;
         }
 

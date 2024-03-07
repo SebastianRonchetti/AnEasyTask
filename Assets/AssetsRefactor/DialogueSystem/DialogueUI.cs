@@ -19,8 +19,10 @@ public class DialogueUI : SingletonClass<DialogueUI> {
         _typeWritterEffect = GetComponent<TypeWritterEffect>();
         _responseHandler = GetComponent<ResponseHandler>();
         ManagerMiddleman._setManagerReference?.Invoke(this);
+        CloseDialogueBox();
     }
 
+// Adds response events based on the array passed on activation
     public void AddResponseEvents(ResponseEvent[] _responseEvents) {
         _responseHandler.addResponseEvents(_responseEvents);
     }
@@ -31,12 +33,14 @@ public class DialogueUI : SingletonClass<DialogueUI> {
         StartCoroutine(stepThroughDialogue(_dialogueToDisplay));
     }
 
+//Function that displays each dialogueSO
     IEnumerator stepThroughDialogue(DialogueObjectSO _dialogueToDisplay) {
         for(int i = 0; i < _dialogueToDisplay.Dialogue.Length; i++){
             string dialogue = _dialogueToDisplay.Dialogue[i];
             
             yield return RunningTypingEffect(dialogue);
 
+            //if the current dialogue being displayed is the last one stop the forloop
             if(i == _dialogueToDisplay.Dialogue.Length - 1 && _dialogueToDisplay.HasResponses){
                 break;
             };
@@ -45,6 +49,7 @@ public class DialogueUI : SingletonClass<DialogueUI> {
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.X));
         }
 
+        //If the dialogue has any attached responses display them or wait to close the box
         if(_dialogueToDisplay.HasResponses){
             _responseHandler.ShowResponses(_dialogueToDisplay.Responses);
         } else {
@@ -66,10 +71,11 @@ public class DialogueUI : SingletonClass<DialogueUI> {
 
     public void CloseDialogueBox() {
         IsOpen = false;
-        dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        dialogueBox.SetActive(false);
     }
 
+//Displays each substring progressively and independently in the dialogue UI
     IEnumerator RunningTypingEffect(string dialogue) {
         _typeWritterEffect.Run(dialogue, textLabel);
         while(_typeWritterEffect.isRunning){
