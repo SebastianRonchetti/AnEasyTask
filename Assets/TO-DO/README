@@ -5,10 +5,15 @@ Establecer una escena subyacente que funcione como sector de control (managers y
 Referencias usando SO (usando acciones referenciar funciones en SOs para desacoplar el código).
 
 MANAGERS
-    - Game manager (Estados de juego, contadores, operador central)
-    - Scene manager (carga y descarga de escenas)
-    - Input manager (lee los inputs y ejecuta acciones para que otros las lean)
-    - Player manager (Principal receptor de inputs).
+    - Game manager (Estados de juego, contadores, operador central) (DONE)
+    - Scene manager (carga y descarga de escenas) (DONE)
+    - Input manager (lee los inputs y ejecuta acciones para que otros las lean) (DONE)
+    - Player manager (Principal receptor de inputs) (DONE)
+
+OPTIMIZACIÓN
+    - Browser play
+    - Asset management and loading
+    - 
 
 MAQUINAS DE ESTADOS:
   - Jugador
@@ -23,8 +28,9 @@ MAQUINAS DE ESTADOS:
 MINIJUEGOS:
   + Dinosaurio chrome.
   + Recolectar (Cristales a pedestales).
-  + Llamadas (Amigo y médico).
+  + Llamadas (Amigo y médico) (DONE).
   + Leer historia (3 partes[o 2?]).
+  + Artículos (2) (DONE)
 
 DISEÑOS VISUALES:
   + Telefono.

@@ -17,7 +17,9 @@ MonoBehaviour:
   _choice1: Read
   _choice2: Keep working
   responses:
-  - _responseText: Read.
-    _pointer: {fileID: 11400000, guid: 91751e5c7c999c742a54e5438f69c4af, type: 2}
+  - _responseText: Read an article.
+    _pointer: {fileID: 11400000, guid: b5105a26f2f765d4d8023bc6ccf93b05, type: 2}
+  - _responseText: Read a story
+    _pointer: {fileID: 11400000, guid: 48662442147f68a48a1ec13ee8382916, type: 2}
   - _responseText: Keep working.
     _pointer: {fileID: 11400000, guid: 453f8af082e5d2344b70746ca481fc0d, type: 2}

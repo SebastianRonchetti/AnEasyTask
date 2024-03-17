@@ -57,28 +57,31 @@ public class ArticleUI : SingletonClass<ArticleUI> {
         updateInteractables();
     }
 // Fills out the paragraph text boxes with the page content
-    void SetPageContent(ArticlePageSO page){        
+    void SetPageContent(ArticlePageSO page){
         for(int i = 0; i < page.Paragraphs.Length; i++){
             paragraphs[i].text = page.Paragraphs[i];
+            paragraphs[i].gameObject.SetActive(true);
         }
 
-        foreach(TMP_Text para in paragraphs){
-            para.text = string.Empty;
-            para.gameObject.SetActive(false);
-        }
+        /* foreach(TMP_Text para in paragraphs){
+            //para.text = string.Empty;
+            para.gameObject.SetActive(true);
+        } */
     }
+
+
 // Sets index page 
     void SetPageIndex(ArticlePageSO page){
         for(int i = 0; i < CurrentlyActiveArticle.Pages.Length; i++){
             if(CurrentlyActiveArticle.Pages[i] == page){
                 activePageIndex = i;
-                pageIndex.text = string.Format($"{activePageIndex} / {CurrentlyActiveArticle.Pages.Length}");
+                pageIndex.text = string.Format($"{activePageIndex + 1} / {CurrentlyActiveArticle.Pages.Length}");
             }
         }
     }
 
     void previousPage(){
-        if(activePageIndex - 1 > 0) {
+        if(activePageIndex > 0) {
             activePageIndex --;
             SetPage(CurrentlyActiveArticle.Pages[activePageIndex]);
         }
@@ -103,7 +106,7 @@ public class ArticleUI : SingletonClass<ArticleUI> {
             nextBtn.enabled = false;
         }
 
-        if(activePageIndex - 1 > 0){
+        if(activePageIndex > 0){
             backBtn.enabled = true;
         } else {
             backBtn.enabled = false;

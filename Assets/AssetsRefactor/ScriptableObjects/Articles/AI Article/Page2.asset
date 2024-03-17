@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: Page2
   m_EditorClassIdentifier: 
   _paragraphs:
-  - Kiogle CEO Maximilian "Square Max" Maxwell promises that the technology derived
-    from Libra AI will allow to connect to a metaphysical aspect of reality and transcend
-    time in order to contact people in the past with very accurate simulations of
-    personality.
-  - On a related interview, AI oppositionist have declared that Square Max's promises
-    constitute an infringement on human rights as per the agreement signed by the
-    coalition of post nuclear calmity in 2045 "If it brings souls back from the dead
-    it could send them back to the wrong place!" They claim.
+  - '"Square Max" had the following to say in the matter: ''...we take very seriously
+    the afterlife, we would never mess with the souls laying past the mortal realm.
+    Our model simply imitates with great accuracy the personalities of people and
+    extrapolates unkown data from known factors like any other AI... only better."
+    \n\nWith these declaration, square Max aims to placate the vocal opposition to
+    the new software, allowing for a swift launch of the AI model into the public'
+  - 'Lastly, we asked the following questions to Max: \nWill the model permit talks
+    with any and all historical figures available for chatting, no matter their predisposition?
+    \nA:"...We aim to bring an educational tool into the world, and as such it is
+    important to have all sides present, as such it will be permitted to chat with
+    the more... unsavory characters in history. We understand the risks of presenting
+    the public with realistic and human depictions of our history''s greatest monsters
+    so we have devised a series of failsafes and monitoring protocols in order to
+    shut down any AI that attempt to indoctrinate the user."'
   _articleImages: []
