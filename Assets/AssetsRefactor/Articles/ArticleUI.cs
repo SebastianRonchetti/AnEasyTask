@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 // TROUBLESHOOTING:
 //  - Article header must auto fit.
-//  - Article text is not diplaying on the paragraphs.
 public class ArticleUI : SingletonClass<ArticleUI> {
     [SerializeField] private GameObject ArticlePopUp;
-    [SerializeField] private List<TMP_Text> paragraphs;
+    /* [SerializeField] private List<TMP_Text> paragraphs; */
+    [SerializeField] private TMP_Text paragraph;
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text pageIndex;
     [SerializeField] private Button backBtn, nextBtn, exitBtn;
@@ -35,50 +35,60 @@ public class ArticleUI : SingletonClass<ArticleUI> {
     public void CloseArticle() {
         IsOpen = false;
         title.text = string.Empty;
-        foreach(TMP_Text para in paragraphs){
+        paragraph.text = string.Empty;
+        paragraph.gameObject.SetActive(false);
+        /* foreach(TMP_Text para in paragraphs){
             para.text = string.Empty;
             para.gameObject.SetActive(false);
-        }
+        } */
         ArticlePopUp.SetActive(false);
         CurrentlyActiveArticle = null;
     }
 
-// Display inputted article on its first page.
+// Displays UI and triggers set up for the first page.
     void openArticle(ArticleSO Article) {
         showArticleUI();
         CurrentlyActiveArticle = Article;
         title.text = Article.Title;
         SetPage(CurrentlyActiveArticle.Pages[0]);
     }
-// Sets current displayed page to the one inputted.
+// Sets page text contets to the one inputted.
+    void SetPage(string content){
+        paragraph.text = content; 
+        for(int i = 0; i < CurrentlyActiveArticle.Pages.Length; i++){
+            if(content == CurrentlyActiveArticle.Pages[i]){
+                activePageIndex = i;
+                pageIndex.text = string.Format($"{activePageIndex + 1} / {CurrentlyActiveArticle.Pages.Length}");
+            }
+        }
+        updateInteractables();
+    } 
+/* 
     void SetPage(ArticlePageSO page){
         SetPageContent(page);
         SetPageIndex(page);
         updateInteractables();
     }
+*/
 // Fills out the paragraph text boxes with the page content
+/*     
     void SetPageContent(ArticlePageSO page){
         for(int i = 0; i < page.Paragraphs.Length; i++){
             paragraphs[i].text = page.Paragraphs[i];
             paragraphs[i].gameObject.SetActive(true);
         }
-
-        /* foreach(TMP_Text para in paragraphs){
-            //para.text = string.Empty;
-            para.gameObject.SetActive(true);
-        } */
-    }
+    } */
 
 
 // Sets index page 
-    void SetPageIndex(ArticlePageSO page){
+ /*    void SetPageIndex(ArticlePageSO page){
         for(int i = 0; i < CurrentlyActiveArticle.Pages.Length; i++){
             if(CurrentlyActiveArticle.Pages[i] == page){
                 activePageIndex = i;
                 pageIndex.text = string.Format($"{activePageIndex + 1} / {CurrentlyActiveArticle.Pages.Length}");
             }
         }
-    }
+    } */
 
     void previousPage(){
         if(activePageIndex > 0) {
@@ -111,11 +121,6 @@ public class ArticleUI : SingletonClass<ArticleUI> {
         } else {
             backBtn.enabled = false;
         }
-    }
-
-    public void ActivateRandomArticle()
-    {
-        
     }
 }
 
