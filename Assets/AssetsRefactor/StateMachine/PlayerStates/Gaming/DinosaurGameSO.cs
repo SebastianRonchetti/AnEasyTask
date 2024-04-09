@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class DinosaurGame_PlayerSO : GamingStateSO {
+public class ScrollerGame_PlayerSO : GamingStateSO {
     float currentSpeed, topSpeed, startingSpeed;
     float height, currentHeight, topHeight;
     public void UpdateState(StateMachine stateMachine, GameObject player){

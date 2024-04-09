@@ -2,30 +2,28 @@ using UnityEngine;
 using System;
 
 public class PlayerManagerSimple : SingletonClass<PlayerManagerSimple> {
-    Rigidbody2D rigidbody;
-    Collider2D collider;
-    [SerializeField]Transform grabPoint, dropPoint;
-    [SerializeField]LayerMask objectsToPickUp, objectReceptors;
+    Rigidbody2D rb;
+    Collider2D col;
+    [SerializeField]Transform grabPoint;
+    [SerializeField]LayerMask objectsToPickUp;
     GameObject heldObject;
     bool focusing = false, awaitingInput = true;
     public static event EventHandler<EventArgs> onFocusing;
     [SerializeField] float moveSpeed, pickupRadius = 2f;
     Vector2 movement;
     Vector3 _faceDirection {get; set;}
-    CollectorLocalManager gm;
     [SerializeField] DialogueUI dialogueUI;
 
     private void Start() {
         _faceDirection = new Vector2(0, -1);
-        gm = CollectorLocalManager.Instance;
-        gm.awaitInput += onWaitForInput;
+        //gm.awaitInput += onWaitForInput;
         dialogueUI = DialogueUI.Instance;
     }
 
     private void Awake() {
         this._instantiate();
-        rigidbody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
     }
 
     void onWaitForInput(object sender, EventArgs e){
@@ -94,7 +92,7 @@ public class PlayerManagerSimple : SingletonClass<PlayerManagerSimple> {
 
     private void FixedUpdate() {
         if(movement.magnitude >= .5f){
-            rigidbody.MovePosition(rigidbody.position + movement * moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
             _faceDirection = movement.normalized;
         }
     }

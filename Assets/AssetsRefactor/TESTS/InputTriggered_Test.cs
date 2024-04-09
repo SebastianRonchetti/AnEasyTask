@@ -5,7 +5,7 @@ public class InputTriggered_Test : MonoBehaviour {
     public TimedEventSO TimedEventTest => _timedEventTest;
     private void Update() {
         if(Input.GetKeyDown(KeyCode.J)){
-            TestMiddleman.onTriggerThis?.Invoke(_timedEventTest);
+            TestMiddleman.TriggerThis?.Invoke(_timedEventTest);
         }
     }
 }

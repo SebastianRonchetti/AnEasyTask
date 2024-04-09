@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/workScene.unity
     guid: f554e01e5b2138341a2ad5b1a5259411
   - enabled: 1
-    path: Assets/Scenes/dinosaurScene.unity
+    path: Assets/Scenes/InfiniteScroller.unity
     guid: 75656c4f80e700140b3823290ad2caef
   - enabled: 1
     path: Assets/Scenes/collectorScene.unity

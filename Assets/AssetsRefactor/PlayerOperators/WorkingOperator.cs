@@ -1,6 +1,9 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "WorkingOperator", menuName = "AnEasyTaskv0.1/PlayerOperators/WorkingOperator", order = 0)]
 public class WorkingOperator : PlayerOperatorBase {
+    public override void onDialoguePrompted()
+    {
+        throw new System.NotImplementedException();
+    }
     public override void OnEnterState(PlayerStateMachine playerStateMachine){
         ManagerMiddleman._onKeyPressOrHoldAction += computeInput;
     }

@@ -34,7 +34,7 @@ class TimerManager : SingletonClass<TimerManager> {
         ManagerMiddleman.workStationConcentrating += keepTimerActive;
         //ManagerMiddleman.concentrationStopped += cantConcentrate;
         ManagerMiddleman.WaitForInput += WaitForInput;
-        TestMiddleman.onTriggerThis += triggerTimedEvent_Test;
+        TestMiddleman.TriggerThis += triggerTimedEvent_Test;
         workProgressionBar = ManagerMiddleman.loadProgress();
         ManagerToOutMiddle._updateUIProgressBarCurrentMax(workProgressionBar, workFinishedMark);
         DUI = DialogueUI.Instance;

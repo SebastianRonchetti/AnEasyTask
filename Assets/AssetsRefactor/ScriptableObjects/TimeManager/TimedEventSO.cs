@@ -5,10 +5,10 @@ using UnityEngine;
 public class TimedEventSO : ScriptableObject {
     [SerializeField] private timedEventVariables[] _timeMark;
     [SerializeField] private DialogueObjectSO _dialogueObject;
-    [SerializeField] private ArticleSO _articleObject;
+    [SerializeField] private ArticleStorySO _articleObject;
     public timedEventVariables[] TimeMark => _timeMark;
     public DialogueObjectSO Dialogue => _dialogueObject;
-    public ArticleSO ArticleObject => _articleObject;
+    public ArticleStorySO ArticleObject => _articleObject;
 
 }
 

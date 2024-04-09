@@ -239,8 +239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8596, y: -3.0339}
-  m_SizeDelta: {x: 668.7198, y: 297.6779}
+  m_AnchoredPosition: {x: 1.8596, y: -3.0352}
+  m_SizeDelta: {x: 668.7198, y: 297.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79165492
 MonoBehaviour:
@@ -262,13 +262,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Due to these factors the Devil horned turtle was driven almost to extinction,
-    making it to the endangered species list a mere 4 years after it's first discovery,
-    causing the Council of United Earth to organize a strict blockade in the SAUF's
-    coast, which was speared by local command officer Jos\xE9 Jorutti of the united
-    southern naval defense force in 2029.\\n\\nDue to the efforts of officer Jorutti
-    and the naval defense force, the Devil horned turtle had a chance to regain some
-    ground and start the long way back out of the protected list."
+  m_text: "Kiogle has revealed its newest AI model, Libra 1.5, this model features
+    what the industry titan calls an \u201Cexperimental\u201D one quadrillion token
+    context window. \\nThe new capability allows Libra 1.5 to process very damn big
+    text passages \u2013 up to one quadrillion characters \u2013 to understand context,
+    meaning and the inherent meaning provided to speech by the human soul. This dwarfs
+    previous AI systems which only managed to reach a 85% overall accuracy on imitation
+    of the logic proper to us humans, the new model would 'look, act and feel as
+    if it were human'. \\n\\nKiogle CEO Maximilian \"Square Max\" Maxwell promises
+    that the technology derived from Libra AI will allow to connect to a metaphysical
+    aspect of reality and transcend time in order to contact people in the past with
+    very accurate simulations of personality. \\n \\n On a related interview, AI
+    oppositionist have declared that Square Max's promises constitute an infringement
+    on human rights as per the agreement signed by the coalition of post nuclear
+    calmity in 2045 \"If it brings souls back from the dead it could send them back
+    to the wrong place!\" They claim."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -646,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listOfArticles:
   - {fileID: 11400000, guid: 466fdbdb9d8739b469f33b582cbdf3d2, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 16f6fd27910165646b08b28d9d2c79c6, type: 2}
 --- !u!4 &264039099
 Transform:
   m_ObjectHideFlags: 0
@@ -4420,7 +4428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2074794871
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4482,7 +4490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 2146312668}
   textLabel: {fileID: 1076070681}
-  _listOfAllDialogues: []
+  _listOfAllDialogues:
+  - {fileID: 0}
 --- !u!1 &2075643842
 GameObject:
   m_ObjectHideFlags: 0

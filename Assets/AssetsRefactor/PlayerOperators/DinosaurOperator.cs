@@ -1,12 +1,14 @@
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "DinosaurOperator", menuName = "AnEasyTaskv0.1/PlayerOperators/DinosaurOperator", order = 0)]
-public class DinosaurOperator : PlayerOperatorBase {
+public class ScrollerOperator : PlayerOperatorBase {
     float movement;
     [SerializeField] float _speed;
     GameObject player;
     Rigidbody2D playerRb;
     bool movingAlive = true;
+    public override void onDialoguePrompted()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public override void OnEnterState(PlayerStateMachine playerStateMachine) {
         ManagerMiddleman.AxisRawHorizontalVertical += computeInput;
