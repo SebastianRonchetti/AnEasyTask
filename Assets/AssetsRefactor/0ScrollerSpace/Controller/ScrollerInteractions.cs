@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class CollectorInteractions : MonoBehaviour
+public class ScrollerInteraction : MonoBehaviour
 {
     [SerializeField] Transform shootPosition;
     [SerializeField] GameObject projectile;
@@ -14,6 +11,8 @@ public class CollectorInteractions : MonoBehaviour
 
     void shoot(KeyCode keyCode){
         //shoot 
-        GameObject activeProjectile = Instantiate(projectile, shootPosition);
+        if(keyCode == KeyCode.Space){
+            Instantiate(projectile, shootPosition);
+        }
     }
 }

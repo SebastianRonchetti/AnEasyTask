@@ -3,7 +3,6 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour {
     Transform pos;
     float speed;
-    Rigidbody2D rb;
     Collider2D col;
 
     private void Awake() {
@@ -11,9 +10,7 @@ public class ProjectileController : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.TryGetComponent(out ObstacleController obstacleController)){
-            obstacleController.damage();
-        }
+        ScrollerMiddlemanSO.damageObject?.Invoke(other.gameObject);
         Destroy(this);
     }
 
