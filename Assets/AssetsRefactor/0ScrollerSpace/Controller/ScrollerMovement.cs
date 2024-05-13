@@ -6,8 +6,8 @@ public class ScrollerMovement : PlayerOperatorBase
 {
     Vector2 movement;
     [SerializeField] float _speed;
-    GameObject player;
-    Rigidbody2D playerRb;
+    [SerializeField] GameObject player;
+    //[SerializeField] Rigidbody2D playerRb;
     bool dialogueActive = false;
 
     public override void onDialoguePrompted()
@@ -34,12 +34,14 @@ public class ScrollerMovement : PlayerOperatorBase
     private void Update() {
         if(dialogueActive){return;}
         if(movement.magnitude >= .5f){
-            playerRb.MovePosition(playerRb.position + movement * _speed * Time.fixedDeltaTime);
+            //playerRb.MovePosition(playerRb.position + movement * _speed * Time.fixedDeltaTime);
+            Vector2 currentPos = new Vector2(player.transform.position.x, player.transform.position.y);
+            player.transform.position = currentPos + movement * _speed * Time.fixedDeltaTime;
         }
     }
 
     public void getPlayer(GameObject playerOnScene) {
         player = playerOnScene;
-        playerRb = player.GetComponent<Rigidbody2D>();
+        //playerRb = player.GetComponent<Rigidbody2D>();
     }
 }

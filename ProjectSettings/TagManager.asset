@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pickable
   - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX

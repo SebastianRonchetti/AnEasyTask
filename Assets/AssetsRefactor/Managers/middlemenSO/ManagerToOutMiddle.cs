@@ -16,6 +16,7 @@ public class ManagerToOutMiddle : ScriptableObject {
     public static Action workSceneConcentrateAwaitInput;
     public static Action<TimedEventSO> OnTimeEventTrigger;
     public static Action<ArticleStorySO> OnShowArticleAction;
+    public static Action unloadLevel;
 
     public static void executeLoadPlay(int game){
         loadPlay?.Invoke(game);

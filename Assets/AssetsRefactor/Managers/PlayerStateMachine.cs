@@ -5,8 +5,16 @@ using System;
 public class PlayerStateMachine : MonoBehaviour {
     [SerializeField] List<PlayerOperatorBase> PlayerOperators;
     PlayerOperatorBase activeOperator;
+    
+    [SerializeField] bool TestMODE;
+    [SerializeField] PlayerOperatorBase ACTIVEOPERATORONSCENE;
+    [SerializeField] string sceneCODETEST;
 
     private void Awake() {
+        if(TestMODE){
+            activeOperator = ACTIVEOPERATORONSCENE;
+            activeOperator.OnEnterState(this);
+        }
         ManagerMiddleman._loadSceneAction += changeActiveMode;
         changeActiveMode("workScene");
     }
