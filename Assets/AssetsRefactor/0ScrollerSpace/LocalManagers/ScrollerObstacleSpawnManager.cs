@@ -6,8 +6,9 @@ using System.Linq;
 
 public class ScrollerObstacleSpawnManager : MonoBehaviour {
     [SerializeField] GameObject[] spawners;
-    [SerializeField] float activeCooldownVal;
     [SerializeField] SpawnObjectRandomizer _randomizer;
+    [Range(1.5f, 5f)]
+    [SerializeField] float activeCooldownVal;
     bool cooldownRunning = false;
 
     private void Awake() {

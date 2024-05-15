@@ -175,9 +175,10 @@ GameObject:
   - component: {fileID: 2562204666603753349}
   - component: {fileID: 115328748863739961}
   - component: {fileID: 2869855758882080642}
+  - component: {fileID: -6616286090289573775}
   m_Layer: 0
   m_Name: PBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,9 +213,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.76}
+  m_Offset: {x: 0, y: 0.6764974}
   serializedVersion: 2
-  m_Radius: 0.43
+  m_Radius: 0.49179208
 --- !u!114 &2869855758882080642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +228,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f435ebac00c5f4fae37f8f3cbf2747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
+  lifeTime: 5
+--- !u!50 &-6616286090289573775
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759326979242999163}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &8324394720072244975
 GameObject:
   m_ObjectHideFlags: 0
