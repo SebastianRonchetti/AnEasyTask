@@ -48,19 +48,28 @@ public class ObstacleController : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.CompareTag("Obstacle")){
+        switch(other.gameObject.tag){
+            case "Obstacle":
             Physics2D.IgnoreCollision(
                 this.gameObject.GetComponent<Collider2D>(), 
                 other.gameObject.GetComponent<Collider2D>(), 
                 true);
-            return;
-        }
-        if(other.gameObject.CompareTag("Wall")){obstacleDestroy();}
-        if(other.gameObject.CompareTag("Bullet")){
+                break;
+            case "Bullet":
             Destroy(other.gameObject);
+            Physics2D.IgnoreCollision(
+                this.gameObject.GetComponent<Collider2D>(), 
+                other.gameObject.GetComponent<Collider2D>(), 
+                true);
             damage(this.gameObject);
+                break;
+            case "Player":
+            ScrollerMiddlemanSO.damageObject?.Invoke(other.gameObject);
+            damage(this.gameObject);
+                break;
+            case "Wall":
+            obstacleDestroy();
+                break;
         }
-        ScrollerMiddlemanSO.damageObject?.Invoke(other.gameObject);
-        ScrollerMiddlemanSO.damageObject?.Invoke(this.gameObject);
     }
 }

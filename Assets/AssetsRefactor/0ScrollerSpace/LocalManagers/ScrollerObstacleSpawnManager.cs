@@ -45,9 +45,7 @@ public class ScrollerObstacleSpawnManager : MonoBehaviour {
     void spawnObstacles(List<GameObject> _selectedSpawners){
         foreach(GameObject _spawnPoint in _selectedSpawners){
             float spawnChance = UnityEngine.Random.Range(0, 100);
-            foreach(GameObject spawner in _selectedSpawners){
-                Instantiate(_randomizer.ObjectRolled(spawnChance), spawner.transform);
-            }
+            Instantiate(_randomizer.ObjectRolled(spawnChance), _spawnPoint.transform);
         }
     }
 

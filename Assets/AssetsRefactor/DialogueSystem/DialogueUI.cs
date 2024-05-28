@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class DialogueUI : SingletonClass<DialogueUI> {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private GameObject background;
     ResponseHandler _responseHandler;
     TypeWritterEffect _typeWritterEffect;
     [SerializeField] List<DialogueSO> _listOfAllDialogues;
@@ -60,6 +61,7 @@ public class DialogueUI : SingletonClass<DialogueUI> {
     void OpenDialogueBox(int _dialogueID){
         DialogueSO _chosenDialogue;
         dialogueBox.SetActive(true);
+        background.SetActive(true);
         foreach (DialogueSO fullDialogue in _listOfAllDialogues) {
             if(fullDialogue._DialogueID == _dialogueID){
                 _chosenDialogue = fullDialogue;
@@ -73,6 +75,7 @@ public class DialogueUI : SingletonClass<DialogueUI> {
         IsOpen = false;
         textLabel.text = string.Empty;
         dialogueBox.SetActive(false);
+        background.SetActive(false);
     }
 
 //Displays each substring progressively and independently in the dialogue UI

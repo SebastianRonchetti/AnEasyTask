@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   integrity: 1
   type: 1
-  lowestSpeed: 1
-  highestSpeed: 15
+  lowestSpeed: 3
+  highestSpeed: 20
 --- !u!58 &256786929638598697
 CircleCollider2D:
   m_ObjectHideFlags: 0

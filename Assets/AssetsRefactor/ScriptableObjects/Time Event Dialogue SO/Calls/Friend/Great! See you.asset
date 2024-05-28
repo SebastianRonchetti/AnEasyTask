@@ -10,15 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67b7d7e62bde200419f83d4e3c233ad2, type: 3}
-  m_Name: PickUpCall
+  m_Name: Great! See you
   m_EditorClassIdentifier: 
   _dialogue:
-  - Hello?
-  - 'Jay: Heyo there! How we doing today?'
-  _choice1: I'm good
-  _choice2: Not good
-  responses:
-  - _responseText: I'm good
-    _pointer: {fileID: 11400000, guid: 44d2e3c2b5575794e94eda4c89eed9ca, type: 2}
-  - _responseText: Not good
-    _pointer: {fileID: 11400000, guid: ddae8af65ef9fe54089c12df9566e3f6, type: 2}
+  - Sure! I'll pack up some of my games
+  - 'Jay: Nice, see you soon!'
+  _choice1: 
+  _choice2: 
+  responses: []

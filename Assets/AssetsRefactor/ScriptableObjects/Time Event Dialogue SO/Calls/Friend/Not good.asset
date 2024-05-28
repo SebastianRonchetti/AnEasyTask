@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b7d7e62bde200419f83d4e3c233ad2, type: 3}
+  m_Name: Not good
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - Not too good honestly, I'm very stressed lately
+  - 'Jay: Oh that sucks man. maybe getting together with the gang can cheer you up
+    a bit? Lucky for you I come to offer just that, this saturday we can get together
+    and play some ball and have pizza, what do you say?'
+  _choice1: Sure, might help
+  _choice2: I'll pass, thanks
+  responses:
+  - _responseText: Sure, might help
+    _pointer: {fileID: 11400000, guid: 62c5fde15c2ee1f4393220e163e26483, type: 2}
+  - _responseText: I'll pass, thanks
+    _pointer: {fileID: 11400000, guid: 3c0640a529d259d45b71e2f06d6feeea, type: 2}

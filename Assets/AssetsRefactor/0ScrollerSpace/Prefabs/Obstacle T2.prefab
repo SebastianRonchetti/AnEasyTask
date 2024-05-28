@@ -49,7 +49,7 @@ MonoBehaviour:
   integrity: 2
   type: 2
   lowestSpeed: 3
-  highestSpeed: 15
+  highestSpeed: 20
 --- !u!58 &306149877699878513
 CircleCollider2D:
   m_ObjectHideFlags: 0

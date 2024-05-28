@@ -1,8 +1,8 @@
 HACER ESTO:
 
-Reasignar funciones. Solo 1 manager por tipo (PJ, GM, etc.).
-Establecer una escena subyacente que funcione como sector de control (managers y referencias).
-Referencias usando SO (usando acciones referenciar funciones en SOs para desacoplar el código).
+Reasignar funciones. Solo 1 manager por tipo (PJ, GM, etc.). (DONE)
+Establecer una escena subyacente que funcione como sector de control (managers y referencias) (DONE)
+Referencias usando SO (usando acciones referenciar funciones en SOs para desacoplar el código) (DONE)
 
 MANAGERS
     - Game manager (Estados de juego, contadores, operador central) (DONE)
@@ -11,28 +11,28 @@ MANAGERS
     - Player manager (Principal receptor de inputs) (DONE)
 
 OPTIMIZACIÓN
-    - Browser play
+    - Browser play (DO THIS)
     - Asset management and loading
-    - 
 
 MAQUINAS DE ESTADOS:
   - Jugador
     + Trabajando.
     + Distraido.
-      * Interacción y movimiento.
-      * Interacción con clickeo.
+      * Interacción y movimiento. (DONE)
+      * Interacción con clickeo. (DONE)
   - Game Manager
-    + Trabajando
-    + Especifico a minijuegos (condiciones de victoria.)
+    + Trabajando (DONE)
+    + Especifico a minijuegos (condiciones de victoria.) (DONE)
 
 MINIJUEGOS:
-  + Infi-scroller. (Space? Race?)
-  + Recolectar (Cristales a pedestales).
-  + Llamadas (Amigo y médico) (DONE).
+  + Infi-scroller. (DONE)
+  + Recolectar (Cristales a pedestales) DONE
+  + Llamadas (Amigo y médico) (DONE 1/2).
+    + Hacer los objetos con las llamadas.
   + Leer historia (3 partes[o 2?]).
   + Artículos (2) (DONE)
 
-DISEÑOS VISUALES:
+==> DISEÑOS VISUALES <==:
   + Telefono.
   + PC.
   + objetos (monedas, cristales, pedestales, Banco).
