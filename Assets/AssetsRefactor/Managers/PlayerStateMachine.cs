@@ -5,7 +5,6 @@ using System;
 public class PlayerStateMachine : MonoBehaviour {
     [SerializeField] List<PlayerOperatorBase> PlayerOperators;
     PlayerOperatorBase activeOperator;
-    
     [SerializeField] bool TestMODE;
     [SerializeField] PlayerOperatorBase ACTIVEOPERATORONSCENE;
     [SerializeField] string sceneCODETEST;
@@ -16,7 +15,6 @@ public class PlayerStateMachine : MonoBehaviour {
             activeOperator.OnEnterState(this);
         }
         ManagerMiddleman._loadSceneAction += changeActiveMode;
-        changeActiveMode("workScene");
     }
 
     void changeActiveMode(string _sceneID) {

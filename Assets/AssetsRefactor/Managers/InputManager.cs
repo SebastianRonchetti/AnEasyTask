@@ -45,24 +45,32 @@ public class InputManager : SingletonClass<InputManager> {
 
         ManagerMiddleman.AxisRawHorizontalVertical?.Invoke(_horizontal, _vertical);
 
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKey(KeyCode.E)) {
-            ManagerMiddleman._onKeyPressOrHoldAction(KeyCode.E);
+        if(Input.GetKeyDown(KeyCode.E)) {
+            ManagerMiddleman._onKeyPressAction?.Invoke(KeyCode.E);
         }
 
-        if(Input.GetKeyDown(KeyCode.Q) || Input.GetKey(KeyCode.Q)){
-            ManagerMiddleman._onKeyPressOrHoldAction(KeyCode.Q);
+        if(Input.GetKeyDown(KeyCode.Q)){
+            ManagerMiddleman._onKeyPressAction?.Invoke(KeyCode.Q);
         }
 
-        if(Input.GetKeyDown(KeyCode.X) || Input.GetKey(KeyCode.X)){
-            ManagerMiddleman._onKeyPressOrHoldAction(KeyCode.X);
+        if(Input.GetKeyDown(KeyCode.X)){
+            ManagerMiddleman._onKeyPressAction?.Invoke(KeyCode.X);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)){
-            ManagerMiddleman._onKeyPressOrHoldAction(KeyCode.Space);
+        if(Input.GetKeyDown(KeyCode.Space)){
+            ManagerMiddleman._onKeyPressAction?.Invoke(KeyCode.Space);
+        }
+
+        if(Input.GetKey(KeyCode.Space)){
+            ManagerMiddleman._onKeyPressOrHoldAction?.Invoke(KeyCode.Space);
         }
 
         if(Input.GetKeyUp(KeyCode.Space)){
             ManagerMiddleman.concentrationStopped?.Invoke(KeyCode.Space);
+        }
+
+        if(Input.GetKeyDown(KeyCode.M)){
+            ManagerMiddleman._onKeyPressAction?.Invoke(KeyCode.M);
         }
     }
 }

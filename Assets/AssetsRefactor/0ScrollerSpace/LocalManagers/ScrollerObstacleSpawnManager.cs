@@ -13,12 +13,10 @@ public class ScrollerObstacleSpawnManager : MonoBehaviour {
 
     private void Awake() {
         ScrollerMiddlemanSO.setObstacleSpawnCooldown += getCooldown;
-        ScrollerMiddlemanSO.UnloadSubscriptions += unload;
     }
 
-    void unload(){
+    void OnDisable(){
         ScrollerMiddlemanSO.setObstacleSpawnCooldown -= getCooldown;
-        ScrollerMiddlemanSO.UnloadSubscriptions -= unload;
     }
 
     private void Update() {

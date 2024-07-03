@@ -6,8 +6,7 @@ public class CollectorTest : MonoBehaviour
     public DialogueObjectSO DialogueSOTest => _dialogueSOTest;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.J)){
-            Debug.Log("ola");
+        if(Input.GetKeyDown(KeyCode.T)){
             TestMiddleman.triggerFunctionTest?.Invoke();
         }
     }

@@ -4,9 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class DialogueUI : SingletonClass<DialogueUI> {
-    [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject dialogueBox, textLabelObject;
     [SerializeField] private TMP_Text textLabel;
-    [SerializeField] private GameObject background;
     ResponseHandler _responseHandler;
     TypeWritterEffect _typeWritterEffect;
     [SerializeField] List<DialogueSO> _listOfAllDialogues;
@@ -14,10 +13,13 @@ public class DialogueUI : SingletonClass<DialogueUI> {
 
     private void Awake() {
         _instantiate();
+        if(!TryGetComponent<TypeWritterEffect>(out _typeWritterEffect)){
+            Destroy(this.gameObject);
+        }
     }
 
     private void Start() {
-        _typeWritterEffect = GetComponent<TypeWritterEffect>();
+        textLabel = textLabelObject.GetComponent<TMP_Text>();
         _responseHandler = GetComponent<ResponseHandler>();
         ManagerMiddleman._setManagerReference?.Invoke(this);
         CloseDialogueBox();
@@ -61,7 +63,6 @@ public class DialogueUI : SingletonClass<DialogueUI> {
     void OpenDialogueBox(int _dialogueID){
         DialogueSO _chosenDialogue;
         dialogueBox.SetActive(true);
-        background.SetActive(true);
         foreach (DialogueSO fullDialogue in _listOfAllDialogues) {
             if(fullDialogue._DialogueID == _dialogueID){
                 _chosenDialogue = fullDialogue;
@@ -75,7 +76,6 @@ public class DialogueUI : SingletonClass<DialogueUI> {
         IsOpen = false;
         textLabel.text = string.Empty;
         dialogueBox.SetActive(false);
-        background.SetActive(false);
     }
 
 //Displays each substring progressively and independently in the dialogue UI

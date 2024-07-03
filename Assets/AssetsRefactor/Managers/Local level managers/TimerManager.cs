@@ -13,7 +13,7 @@ class TimerManager : SingletonClass<TimerManager> {
     [SerializeField] List<TimedEventSO> timedEvents;
     DialogueUI DUI;
     [SerializeField] TextMeshProUGUI timerObject;
-    bool canConcentrate = true;
+    [SerializeField]bool canConcentrate = true;
     public class onUpdateUIBar_eventArgs : EventArgs {
         public float currentAmount, maxAmount;
     }
@@ -27,28 +27,36 @@ class TimerManager : SingletonClass<TimerManager> {
     private void Awake() {
         _instantiate();
         workProgressionBar = workFinishedMark;
-        ManagerMiddleman.saveProgressBar(workProgressionBar);
+        if(ManagerMiddleman.loadProgress() != -1){
+            UpdateTimer(ManagerMiddleman.loadProgress());
+        } else {
+            UpdateTimer(workFinishedMark);
+        }
     }
 
     private void OnEnable() {
-        ManagerMiddleman.workStationConcentrating += keepTimerActive;
+        //ManagerMiddleman.workStationConcentrating += keepTimerActive;
+        ManagerMiddleman._onKeyPressOrHoldAction += keepTimerActive;
         //ManagerMiddleman.concentrationStopped += cantConcentrate;
         ManagerMiddleman.WaitForInput += WaitForInput;
         TestMiddleman.TriggerThis += triggerTimedEvent_Test;
-        workProgressionBar = ManagerMiddleman.loadProgress();
+        if(ManagerMiddleman.loadProgress() != -1){
+            workProgressionBar = ManagerMiddleman.loadProgress();
+        }
         ManagerToOutMiddle._updateUIProgressBarCurrentMax(workProgressionBar, workFinishedMark);
         DUI = DialogueUI.Instance;
     }
     private void OnDisable() {
-        ManagerMiddleman.workStationConcentrating -= keepTimerActive;
+        //ManagerMiddleman.workStationConcentrating -= keepTimerActive;
+        ManagerMiddleman._onKeyPressOrHoldAction -= keepTimerActive;
         //ManagerMiddleman.concentrationStopped -= cantConcentrate;
         ManagerMiddleman.WaitForInput -= WaitForInput;
         ManagerMiddleman.saveProgressBar(workProgressionBar);
-        resetTimeEventTriggers();
     }
     
     //Function which keeps the countdown going. Receives triggers via event activated with input by the user.
-    void keepTimerActive(){
+    void keepTimerActive(KeyCode a){
+        if(a != KeyCode.Space){ return; }
         workProgressionBar += 0;
         if(canConcentrate){
             if(workProgressionBar > 0){

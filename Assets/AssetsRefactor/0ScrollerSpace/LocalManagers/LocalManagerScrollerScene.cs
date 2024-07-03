@@ -4,33 +4,34 @@ using System;
 public class LocalManagerScrollerScene : MonoBehaviour {
     int points;
     float activeTimer;
-    int lowestSpeed, highestSpeed;
-    bool stoppedOrPaused = false;
+    [SerializeField]int lowestSpeed, highestSpeed;
     
     private void Awake() {
-        ManagerToOutMiddle.unloadLevel += unloadLevel;    
+        ManagerToOutMiddle.unloadLevel += unloadLevel;
+        ManagerMiddleman._onKeyPressAction += commandPause;
+        ManagerMiddleman.onSceneLoaded?.Invoke();
     }
 
     private void Update() {
-        if(!stoppedOrPaused){
-            activeTimer += Time.deltaTime;
-            ScrollerMiddlemanSO.passCurrentTimer?.Invoke(activeTimer);
+        if(Time.timeScale == 0){
+            ScrollerMiddlemanSO.passCurrentTimer?.Invoke(0);
+            return;
+        }
+        activeTimer += Time.deltaTime;
+        float passedTimer = Mathf.RoundToInt(activeTimer % 60)/30;
+        if(passedTimer > highestSpeed) {passedTimer = highestSpeed;}
+        if(passedTimer < lowestSpeed) {passedTimer = lowestSpeed;}
+        ScrollerMiddlemanSO.passCurrentTimer?.Invoke(passedTimer);
+    }
+
+    void commandPause(KeyCode _command){
+        if(_command == KeyCode.M){
+            TempMiddleman.pauseGame?.Invoke();
         }
     }
 
-    void stopGame(){
-        stoppedOrPaused = true;
-    }
-    void pauseGame(){
-        stoppedOrPaused = true;
-    }
-
-    void resume(){
-        stoppedOrPaused = false;
-    }
-
     void unloadLevel(){
-        ScrollerMiddlemanSO.UnloadSubscriptions?.Invoke();
         ManagerToOutMiddle.unloadLevel -= unloadLevel;
+        ManagerToOutMiddle.backToWork?.Invoke();
     }
 }

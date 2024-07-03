@@ -1,33 +1,40 @@
 using UnityEngine;
 
 public class CollectorInteraction : MonoBehaviour {
-    GameObject player;
-    GameObject _heldObject;
+    GameObject player; 
+    [SerializeField] GameObject _heldObject;
     [SerializeField] float pickupRadius;
     Vector3 playerFaceDirection = new Vector2(0, -1);
     [SerializeField] Transform grabPoint;
     [SerializeField] LayerMask objectsToPickUp;
 
     private void Start() {
-        ManagerMiddleman._onKeyPressOrHoldAction += computeInput;
+        ManagerMiddleman._onKeyPressAction += computeInput;
+        player = this.gameObject;
     }
 
     public void computeInput(KeyCode _keyCode)
     {
+        Collider2D _item;
         if(_keyCode == KeyCode.Space){
             if(_heldObject != null){
                 _heldObject.transform.position = player.transform.position + playerFaceDirection;
                 _heldObject.transform.parent = null;
+                _heldObject.GetComponent<PickableItem>().onDrop();
                 _heldObject = null;
-            } else {
+            } else if (Physics2D.OverlapCircle(player.transform.position + playerFaceDirection, 
+                        pickupRadius, objectsToPickUp).TryGetComponent(out _item)){
                 //pickup
-                Collider2D _item = Physics2D.OverlapCircle(player.transform.position + playerFaceDirection, pickupRadius, objectsToPickUp);
-                if(_item != null) {
+                PickableItem usage;
+                if(_item.TryGetComponent(out usage)){
+                    usage.onPick();
                     _heldObject = _item.gameObject;
                     _heldObject.transform.position = grabPoint.position;
                     _heldObject.transform.parent = player.transform;
                 }
-            }
+            } else {
+                Debug.Log("Aca no hay na, pa");
+            }   
         }
     }
 

@@ -9,6 +9,5 @@ public class ScrollerMiddlemanSO : ScriptableObject {
     public static Action<int> displayHealth;
     public static Action<float> setObstacleSpawnCooldown;
     public static Action<float, GameObject[]> spawnObstaclesBasedOnChance;
-    public static Action UnloadSubscriptions;
     public static Action<float> passCurrentTimer;
 }

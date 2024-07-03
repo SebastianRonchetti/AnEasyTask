@@ -6,16 +6,16 @@ public class ScrollerInteraction : MonoBehaviour
     [SerializeField] Transform shootPosition;
     [SerializeField] GameObject projectile;
     [SerializeField] float shootCooldown = 0.3f;
-    bool activeCooldown;
+    [SerializeField]bool activeCooldown;
 
     private void Awake() {
         ManagerMiddleman._onKeyPressOrHoldAction += shootCommand;
-        ScrollerMiddlemanSO.UnloadSubscriptions += unload;
+        ManagerMiddleman._onKeyPressOrHoldAction += pauseUnpause;
     }
 
-    void unload(){
+    void OnDisable(){
         ManagerMiddleman._onKeyPressOrHoldAction -= shootCommand;
-        ScrollerMiddlemanSO.UnloadSubscriptions -= unload;
+        ManagerMiddleman._onKeyPressOrHoldAction -= pauseUnpause;
     }
 
     void shootCommand(KeyCode keyCode){
@@ -35,5 +35,11 @@ public class ScrollerInteraction : MonoBehaviour
         activeCooldown = true;
         yield return new WaitForSeconds(shootCooldown);
         activeCooldown = false;
+    }
+
+    void pauseUnpause(KeyCode _pauseCommand){
+        if(_pauseCommand == KeyCode.M){
+            TempMiddleman.pauseGame?.Invoke();
+        }
     }
 }

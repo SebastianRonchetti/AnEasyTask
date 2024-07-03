@@ -19,8 +19,9 @@ MonoBehaviour:
     _triggered: 0
   - _timeMark: 210
     _triggered: 0
-  - _timeMark: 130
+  - _timeMark: 150
     _triggered: 0
   - _timeMark: 60
     _triggered: 0
   _dialogueObject: {fileID: 11400000, guid: 116e6b6b0e6fabc469bd9b8c96930c6c, type: 2}
+  _articleObject: {fileID: 0}

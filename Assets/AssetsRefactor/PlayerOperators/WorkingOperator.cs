@@ -5,7 +5,7 @@ public class WorkingOperator : PlayerOperatorBase {
         throw new System.NotImplementedException();
     }
     public override void OnEnterState(PlayerStateMachine playerStateMachine){
-        ManagerMiddleman._onKeyPressOrHoldAction += computeInput;
+        ManagerMiddleman._onKeyHoldAction += computeInput;
     }
     public override void UpdateState(PlayerStateMachine stateMachine){}
     public override void computeInput(KeyCode _keyCode){
@@ -15,6 +15,6 @@ public class WorkingOperator : PlayerOperatorBase {
     }
     public override void computeInput(float _horizontal, float _vertical){}
     public override void OnExitState(){
-        ManagerMiddleman._onKeyPressOrHoldAction -= computeInput;
+        ManagerMiddleman._onKeyHoldAction -= computeInput;
     }
 }

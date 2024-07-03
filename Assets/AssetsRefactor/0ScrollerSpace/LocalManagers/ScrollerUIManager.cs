@@ -6,14 +6,12 @@ public class ScrollerUIManager : MonoBehaviour {
     
     TextMeshProUGUI pointDisplay, timerDisplay;
     private void Awake() {
-        ScrollerMiddlemanSO.UnloadSubscriptions += unload;
         ScrollerMiddlemanSO.displayHealth += displayHealth;
         ScrollerMiddlemanSO.passCurrentTimer += displayTimer;
     }
 
-    void unload(){
+    void OnDisable(){
         ScrollerMiddlemanSO.displayHealth -= displayHealth;
-        ScrollerMiddlemanSO.UnloadSubscriptions -= unload;
     }
 
     void displayTimer(float _currentTime){

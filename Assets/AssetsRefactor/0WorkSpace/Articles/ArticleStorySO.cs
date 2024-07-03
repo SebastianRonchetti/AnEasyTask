@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ArticleStorySO", menuName = "AnEasyTaskv0.1/ArticleStorySO", order = 0)]

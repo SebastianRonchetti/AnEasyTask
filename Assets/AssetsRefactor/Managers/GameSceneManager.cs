@@ -1,13 +1,17 @@
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameSceneManager : SingletonClass<GameSceneManager> {
     sceneCodes _controlScene, activeScene, nextScene;
     public sceneCodes[] scenes;
+    [SerializeField] bool loading = false;
 
     private void Awake() {
         _instantiate();
-        scenes = new sceneCodes[4];
         ManagerMiddleman.loadSceneByName += changeScene;
+        ManagerToOutMiddle.reload += reloadLevel;
+        ManagerMiddleman.onSceneLoaded += stopLoading;
+        scenes = new sceneCodes[5];
         
         for(int i = 0; i < scenes.Length; i++){
             string pathToScene = SceneUtility.GetScenePathByBuildIndex(i);
@@ -21,8 +25,12 @@ public class GameSceneManager : SingletonClass<GameSceneManager> {
         
         _controlScene = scenes[0];
         if(activeScene != scenes[1]){
-            changeScene("workScene");
+            changeScene("mainMenu");
         }
+    }
+
+    void stopLoading(){
+        loading = false;
     }
 
     private void Start() {
@@ -30,8 +38,12 @@ public class GameSceneManager : SingletonClass<GameSceneManager> {
         ManagerToOutMiddle.loadPlay += playGame;
     }
 
+    void reloadLevel(){
+        changeScene(activeScene.getName());
+    }
+
     void backToWork(){
-        changeScene(scenes[1].getName());
+        changeScene(scenes[2].getName());
     }
 
     void playGame(int game){
@@ -39,6 +51,8 @@ public class GameSceneManager : SingletonClass<GameSceneManager> {
     }
 
     public void changeScene(string sceneName){
+        if(loading){ return; }
+        loading = true;
         for(int i = 1; i < scenes.Length; i++){
             if(scenes[i].getName() == sceneName){
                 nextScene = scenes[i];

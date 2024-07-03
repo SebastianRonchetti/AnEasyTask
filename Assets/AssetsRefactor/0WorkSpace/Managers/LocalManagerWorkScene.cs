@@ -1,8 +1,16 @@
 using UnityEngine;
 
 public class LocalManagerWorkScene : MonoBehaviour {
+
+    private void Awake() {
+        ManagerMiddleman.onSceneLoaded?.Invoke();
+    }
+    private void OnEnable() {
+        backToWork();
+    }
+
     public void backToWork(){
-        //awaitInput for concentration
+        ManagerMiddleman.WaitForInput?.Invoke();
     }
 
     public void playGames(){

@@ -13,13 +13,25 @@ public class CollectorLocalManager : SingletonClass<CollectorLocalManager> {
         _instantiate();
         CollectorLocalMiddlemanSO.OnGatherAllPickables += onChoreFulfilled;
         CollectorLocalMiddlemanSO.itemStored += itemStored;
-        TestMiddleman.triggerFunctionTest += onChoreFulfilled;
+        ManagerToOutMiddle.backToWork += backToWork;
+        ManagerToOutMiddle.unloadLevel += unload;
+        ManagerMiddleman.onSceneLoaded?.Invoke();
+    }
+
+    private void OnDisable() {
+        CollectorLocalMiddlemanSO.OnGatherAllPickables -= onChoreFulfilled;
+        CollectorLocalMiddlemanSO.itemStored -= itemStored;
+        ManagerToOutMiddle.backToWork -= backToWork;
+        ManagerToOutMiddle.unloadLevel -= unload;
+    }
+
+    void unload(){
+        ManagerMiddleman._loadWorkSceneAction?.Invoke();
     }
 
     private void Start() {
         dialogue = DialogueUI.Instance;
         dialogueResponseEvent = GetComponent<DialogueResponseEvent>();
-        dialogue.CloseDialogueBox();
         setAmountOfPickables();
     }
     
@@ -43,10 +55,12 @@ public class CollectorLocalManager : SingletonClass<CollectorLocalManager> {
     }
 
     public void reload(){
+        OnDisable();
         ManagerMiddleman.loadSceneByName("collectorScene");
     }
 
     public void backToWork(){
+        OnDisable();
         ManagerMiddleman.loadSceneByName("workScene");
     }
 }

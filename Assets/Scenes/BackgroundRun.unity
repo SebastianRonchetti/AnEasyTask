@@ -206,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c18a79468c042b45ae2ccfadfe6e3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenes: []
 --- !u!114 &1597981020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,12 +213,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597981014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ba365487b9e474fb427990762bdae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOperators:
-  - {fileID: 11400000, guid: 4f596b56536bb4a4aaaeed5083655324, type: 2}
-  - {fileID: 11400000, guid: 44e06469ebbb0de4fadceedd229f6587, type: 2}
-  - {fileID: 11400000, guid: 11f4e4c7cc9436544b97ba2dc387acf9, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TestMODE: 0
+  ACTIVEOPERATORONSCENE: {fileID: 0}
+  sceneCODETEST: 

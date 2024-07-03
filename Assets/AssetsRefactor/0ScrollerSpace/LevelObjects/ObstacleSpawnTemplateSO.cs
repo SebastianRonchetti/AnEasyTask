@@ -11,14 +11,12 @@ public class ObstacleSpawnTemplateSO : ScriptableObject {
     public List<ObstacleSpawnCommandSO> commands;
     float spawnChanceLow, spawnChanceHigh;
     
-    public void suscribeToEvents(){
+    public void OnEnable(){
         ScrollerMiddlemanSO.spawnObstaclesBasedOnChance += activate;
-        ScrollerMiddlemanSO.UnloadSubscriptions += unsuscribeFromEvents;
     }
 
-    public void unsuscribeFromEvents(){
+    public void OnDisable(){
         ScrollerMiddlemanSO.spawnObstaclesBasedOnChance -= activate;
-        ScrollerMiddlemanSO.UnloadSubscriptions -= unsuscribeFromEvents;
     }
     
     void activate(float roll, GameObject[] _spawners){

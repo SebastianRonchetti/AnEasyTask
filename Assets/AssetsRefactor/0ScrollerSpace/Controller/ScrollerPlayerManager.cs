@@ -1,10 +1,14 @@
 using UnityEngine;
 
 public class ScrollerPlayerManager : MonoBehaviour {
-    int durability;
+    [SerializeField]int durability = 6;
 
-    private void Awake() {
+    private void OnEnable() {
         ScrollerMiddlemanSO.damageObject += damage;
+    }
+
+    private void OnDisable() {
+        ScrollerMiddlemanSO.damageObject -= damage;
     }
 
     void damage(GameObject signaled){
@@ -13,5 +17,8 @@ public class ScrollerPlayerManager : MonoBehaviour {
         }
         durability--;
         ScrollerMiddlemanSO.displayHealth?.Invoke(durability);
+        if(durability <= 0){
+            ScrollerMiddlemanSO.playerGameOver?.Invoke();
+        }
     }
 }

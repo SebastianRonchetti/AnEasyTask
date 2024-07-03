@@ -22,6 +22,7 @@ public class ObstacleController : MonoBehaviour {
     void obstacleDestroy(){
         ScrollerMiddlemanSO.damageObject -= damage;
         ScrollerMiddlemanSO.passCurrentTimer -= Move;
+        OnDisable();
         Destroy(this.gameObject);
     }
 
@@ -39,37 +40,27 @@ public class ObstacleController : MonoBehaviour {
     }
 
     void Move(float _activeTimer){
-        float speedModifier = Mathf.FloorToInt(_activeTimer % 60) / 30;
-        if(speedModifier == 0){ speedModifier = lowestSpeed;}
-        if(speedModifier > highestSpeed) {speedModifier = highestSpeed;}
-        if(speedModifier < lowestSpeed) {speedModifier = lowestSpeed;}
-        float movement = pos.position.y - transform.forward.z * Time.fixedDeltaTime * speedModifier;
+        float movement = pos.position.y - transform.forward.z * Time.fixedDeltaTime * _activeTimer;
         gameObject.transform.position = new Vector3(transform.position.x, movement,0);
     }
 
     void OnCollisionEnter2D(Collision2D other) {
+        Physics2D.IgnoreCollision(
+            this.gameObject.GetComponent<Collider2D>(), 
+            other.gameObject.GetComponent<Collider2D>(), 
+            true);
         switch(other.gameObject.tag){
-            case "Obstacle":
-            Physics2D.IgnoreCollision(
-                this.gameObject.GetComponent<Collider2D>(), 
-                other.gameObject.GetComponent<Collider2D>(), 
-                true);
-                break;
             case "Bullet":
-            Destroy(other.gameObject);
-            Physics2D.IgnoreCollision(
-                this.gameObject.GetComponent<Collider2D>(), 
-                other.gameObject.GetComponent<Collider2D>(), 
-                true);
-            damage(this.gameObject);
-                break;
+                Destroy(other.gameObject);
+                damage(this.gameObject);
+            break;
             case "Player":
-            ScrollerMiddlemanSO.damageObject?.Invoke(other.gameObject);
-            damage(this.gameObject);
-                break;
+                ScrollerMiddlemanSO.damageObject?.Invoke(other.gameObject);
+                damage(this.gameObject);
+            break;
             case "Wall":
-            obstacleDestroy();
-                break;
+                obstacleDestroy();
+            break;
         }
     }
 }

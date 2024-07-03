@@ -5,7 +5,7 @@ public class ProjectileController : MonoBehaviour {
     [Range(10, 15)]
     [SerializeField] float speed = 15;
     [Range(2, 5)]
-    [SerializeField] float lifeTime = 5;
+    [SerializeField] float lifeTime = 3;
 
     private void Awake() {
         pos = gameObject.transform;

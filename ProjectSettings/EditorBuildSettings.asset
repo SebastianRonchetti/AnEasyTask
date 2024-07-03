@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BackgroundRun.unity
     guid: 58079469eee799c4ab92d1f3c8f883c4
   - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+    guid: f6e0a5630b598204abcac16f10efa7d8
+  - enabled: 1
     path: Assets/Scenes/workScene.unity
     guid: f554e01e5b2138341a2ad5b1a5259411
   - enabled: 1

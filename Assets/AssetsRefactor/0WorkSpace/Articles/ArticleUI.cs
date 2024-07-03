@@ -13,7 +13,7 @@ public class ArticleUI : SingletonClass<ArticleUI> {
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text pageIndex;
     [SerializeField] private Button backBtn, nextBtn, exitBtn;
-    [SerializeField] private GameObject background;
+    //[SerializeField] private GameObject background;
     int activePageIndex;
     public bool IsOpen {get; private set;}
     ArticleStorySO CurrentlyActiveArticle;
@@ -29,7 +29,7 @@ public class ArticleUI : SingletonClass<ArticleUI> {
 //Displays article interface
     void showArticleUI(){
         IsOpen = true;
-        background.SetActive(true);
+        //background.SetActive(true);
         ArticlePopUp.SetActive(true);
     }
 // Closes article interface and set it's components to empty.
@@ -39,7 +39,7 @@ public class ArticleUI : SingletonClass<ArticleUI> {
         paragraph.text = string.Empty;
         paragraph.gameObject.SetActive(false);
         ArticlePopUp.SetActive(false);
-        background.SetActive(false);
+        //background.SetActive(false);
         CurrentlyActiveArticle = null;
     }
 

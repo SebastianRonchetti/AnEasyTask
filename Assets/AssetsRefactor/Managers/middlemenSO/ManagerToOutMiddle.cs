@@ -9,7 +9,6 @@ public class ManagerToOutMiddle : ScriptableObject {
     public static GameObject PlayerOnScene => _playerOnScene;
     public static Action<float, float> _updateUIProgressBarCurrentMax; // fill amount, max amount
     public static Action<GameObject> setPlayerOnScene;
-
     public static Action backToWork;
     public static Action reload;
     public static Action<int> loadPlay;

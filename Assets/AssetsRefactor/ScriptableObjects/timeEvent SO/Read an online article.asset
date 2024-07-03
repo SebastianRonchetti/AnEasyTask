@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Read an online article
   m_EditorClassIdentifier: 
   _timeMark:
-  - _timeMark: 415
+  - _timeMark: 350
+    _triggered: 0
+  - _timeMark: 245
+    _triggered: 0
+  - _timeMark: 120
     _triggered: 0
   _dialogueObject: {fileID: 11400000, guid: 3044db65e292b6f45b6272b000e6a234, type: 2}
   _articleObject: {fileID: 0}
