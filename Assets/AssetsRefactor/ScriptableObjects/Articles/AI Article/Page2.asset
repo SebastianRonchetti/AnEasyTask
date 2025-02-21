@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1252960b947b74fb6c58bf16d551fa, type: 3}
+  m_Name: Page2
+  m_EditorClassIdentifier: 
+  _paragraphs:
+  - '"Square Max" had the following to say in the matter: ''...we take very seriously
+    the afterlife, we would never mess with the souls laying past the mortal realm.
+    Our model simply imitates with great accuracy the personalities of people and
+    extrapolates unkown data from known factors like any other AI... only better."
+    \n\nWith these declaration, square Max aims to placate the vocal opposition to
+    the new software, allowing for a swift launch of the AI model into the public.\n\nLastly,
+    we asked the following questions to Max: \nWill the model permit talks with any
+    and all historical figures available for chatting, no matter their predisposition?
+    \nA:"...We aim to bring an educational tool into the world, and as such it is
+    important to have all sides present, as such it will be permitted to chat with
+    the more... unsavory characters in history. We understand the risks of presenting
+    the public with realistic and human depictions of our history''s greatest monsters
+    so we have devised a series of failsafes and monitoring protocols in order to
+    shut down any AI that attempt to indoctrinate the user."'
+  - 'Lastly, we asked the following questions to Max: \nWill the model permit talks
+    with any and all historical figures available for chatting, no matter their predisposition?
+    \nA:"...We aim to bring an educational tool into the world, and as such it is
+    important to have all sides present, as such it will be permitted to chat with
+    the more... unsavory characters in history. We understand the risks of presenting
+    the public with realistic and human depictions of our history''s greatest monsters
+    so we have devised a series of failsafes and monitoring protocols in order to
+    shut down any AI that attempt to indoctrinate the user."'
+  _articleImages: []

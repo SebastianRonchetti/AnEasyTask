@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b7d7e62bde200419f83d4e3c233ad2, type: 3}
+  m_Name: Doctor availability
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - Ah, I understand. When will the doctor be available for another appointment?
+  - 'Assistant: The closest would be the 13th at 2:45 PM, followed by the 16th at
+    3 PM'
+  _choice1: Friday 13
+  _choice2: Monday 16
+  responses:
+  - _responseText: Friday 13
+    _pointer: {fileID: 11400000, guid: 9b833ddbe1921a248a6c6dbb92cc913e, type: 2}
+  - _responseText: Monday 16
+    _pointer: {fileID: 11400000, guid: d80a78d9fddad9c41bf5d144362223fe, type: 2}

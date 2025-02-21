@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b7d7e62bde200419f83d4e3c233ad2, type: 3}
+  m_Name: Sounds fun
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - Sounds like fun, count me in!
+  - 'Jay: great! We''re meeting up at Matt''s to get some ingredients and then we
+    go to Ally''s place.'
+  _choice1: Great! See you then
+  _choice2: 
+  responses:
+  - _responseText: Great! See you then
+    _pointer: {fileID: 11400000, guid: 10dbf1e2e8cfff44e9978b336d508f24, type: 2}

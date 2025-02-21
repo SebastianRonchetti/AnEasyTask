@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b7d7e62bde200419f83d4e3c233ad2, type: 3}
+  m_Name: I'm good
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - 'Jay: Glad to hear that bud! I''m doing well myself too.\nListen, I was organizing
+    a small get together with the gang this saturday we can play some boardgames
+    and have dinner. You in?'
+  _choice1: Sounds fun
+  _choice2: Maybe another time.
+  responses:
+  - _responseText: Sounds fun
+    _pointer: {fileID: 11400000, guid: 62c5fde15c2ee1f4393220e163e26483, type: 2}
+  - _responseText: Maybe another time
+    _pointer: {fileID: 11400000, guid: 3c0640a529d259d45b71e2f06d6feeea, type: 2}

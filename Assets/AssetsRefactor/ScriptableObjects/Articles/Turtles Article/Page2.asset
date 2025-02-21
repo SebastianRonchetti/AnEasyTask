@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1252960b947b74fb6c58bf16d551fa, type: 3}
+  m_Name: Page2
+  m_EditorClassIdentifier: 
+  _paragraphs:
+  - "Due to these factors the Devil horned turtle was driven almost to extinction,
+    making it to the endangered species list a mere 4 years after it's first discovery,
+    causing the Council of United Earth to organize a strict blockade in the SAUF's
+    coast, which was speared by local command officer Jos\xE9 Jorutti of the united
+    southern naval defense force in 2029.\\n\\nDue to the efforts of officer Jorutti
+    and the naval defense force, the Devil horned turtle had a chance to regain some
+    ground and start the long way back out of the protected list.\\n\\nLocal marine
+    biologist and grandson of Jose Jorutti Joaquin Jorutti said the following: \"Turtles
+    are cool. With this development we can expect the tough bastards to make a recovery
+    and make it off the endangered species list by 2053\".\\n\\nEven with Joaquin's
+    positive outlook on the situation, more conservative voices warn that even with
+    the Confederation's armorclad naval presence, poachers still manage to smuggle
+    out 30 to 40 specimens per year. To these declarations commander Jorutti replied
+    \"There is much work to be done but I am already aware of what the poacher's
+    next move is going to be, I know it even before they do!\""
+  - 'Local marine biologist and grandson of Jose Jorutti Joaquin Jorutti said the
+    following: "Turtles are cool. With this development we can expect the tough bastards
+    to make a recovery and make it off the endangered species list by 2053".\n\nEven
+    with Joaquin''s positive outlook on the situation, more conservative voices warn
+    that even with the Confederation''s armorclad naval presence, poachers still
+    manage to smuggle out 30 to 40 specimens per year. To these declarations commander
+    Jorutti replied "There is much work to be done but I am already aware of what
+    the poacher''s next move is going to be, I know it even before they do!"'
+  _articleImages: []

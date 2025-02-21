@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 739e1403e93705c4dae256f43beb9be2, type: 3}
+  m_Name: AI Article
+  m_EditorClassIdentifier: 
+  _pages:
+  - "Kiogle has revealed its newest AI model, Libra 1.5, this model features what
+    the industry titan calls an \u201Cexperimental\u201D one quadrillion token context
+    window. <br>The new capability allows Libra 1.5 to process very damn big text
+    passages \u2013 up to one quadrillion characters \u2013 to understand context,
+    meaning and the inherent meaning provided to speech by the human soul. This dwarfs
+    previous AI systems which only managed to reach a 85% overall accuracy on imitation
+    of the logic proper to us humans, the new model would 'look, act and feel as
+    if it were human'. <br><br>Kiogle CEO Maximilian \"Square Max\" Maxwell promises
+    that the technology derived from Libra AI will allow to connect to a metaphysical
+    aspect of reality and transcend time in order to contact people in the past with
+    very accurate simulations of personality. <br><br> On a related interview, AI
+    oppositionist have declared that Square Max's promises constitute an infringement
+    on human rights as per the agreement signed by the coalition of post nuclear
+    calmity in 2045 \"If it brings souls back from the dead it could send them back
+    to the wrong place!\" They claim."
+  - '"Square Max" had the following to say in the matter: ''...we take very seriously
+    the afterlife, we would never mess with the souls laying past the mortal realm.
+    Our model simply imitates with great accuracy the personalities of people and
+    extrapolates unkown data from known factors like any other AI... only better."
+    <br>With these declaration, square Max aims to placate the vocal opposition to
+    the new software, allowing for a swift launch of the AI model into the public.<br><br>Lastly,
+    we asked the following questions to Max: <br>Will the model permit talks with
+    any and all historical figures available for chatting, no matter their predisposition?
+    <br>A:"...We aim to bring an educational tool into the world, and as such it
+    is important to have all sides present, as such it will be permitted to chat
+    with the more... unsavory characters in history. We understand the risks of presenting
+    the public with realistic and human depictions of our history''s greatest monsters
+    so we have devised a series of failsafes and monitoring protocols in order to
+    shut down any AI that attempt to indoctrinate the user."'
+  _title: AI and talking to the dead. Are we going too far with technology again?
